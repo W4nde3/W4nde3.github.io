@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://blog.iwonder.run/friends/index.html</loc>
-    
-    <lastmod>2020-07-01T09:09:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.iwonder.run/categories/index.html</loc>
     
     <lastmod>2020-07-01T09:09:44.000Z</lastmod>
@@ -52,6 +45,13 @@
   
   <url>
     <loc>https://blog.iwonder.run/contact/index.html</loc>
+    
+    <lastmod>2020-07-01T09:09:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.iwonder.run/friends/index.html</loc>
     
     <lastmod>2020-07-01T09:09:44.000Z</lastmod>
     
