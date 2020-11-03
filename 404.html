@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
@@ -555,7 +548,10 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    // new Date().getDay()
+    // Math.ceil(Math.random()*10)
+    var array = ['1','2','3']
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + array[Math.round(Math.random() * array.length)] + '.jpg)');
 </script>
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -583,7 +579,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">56</span> 字
+                <span class="white-color">57</span> 字
             
 
             
