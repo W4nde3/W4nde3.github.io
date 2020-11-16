@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.iwonder.run/"/>
-  <updated>2020-11-11T13:49:15.844Z</updated>
+  <updated>2020-11-16T03:52:31.133Z</updated>
   <id>https://blog.iwonder.run/</id>
   
   <author>
@@ -18,10 +18,34 @@
   
   <entry>
     <title></title>
+    <link href="https://blog.iwonder.run/2020/11/16/books/"/>
+    <id>https://blog.iwonder.run/2020/11/16/books/</id>
+    <published>2020-11-16T03:52:31.133Z</published>
+    <updated>2020-11-16T03:52:31.133Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原文链接：&lt;a href=&quot;https://github.com/ruanyf/free-books&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;br&gt;免费计算机书籍汇总。&lt;/p&gt;
+&lt;p&gt;没有注明语种的，都为英语资源。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/"/>
     <id>https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/</id>
     <published>2020-11-11T13:48:34.469Z</published>
-    <updated>2020-11-11T13:49:15.844Z</updated>
+    <updated>2020-11-11T13:54:26.697Z</updated>
     
     <summary type="html">
     
