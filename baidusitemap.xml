@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.iwonder.run/2020/12/02/ss-ssr-notes/</loc>
+    <lastmod>2020-12-02</lastmod>
+  </url>  <url>
+    <loc>https://blog.iwonder.run/2020/12/02/host-discovery/</loc>
+    <lastmod>2020-12-02</lastmod>
+  </url>  <url>
     <loc>https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/</loc>
     <lastmod>2020-11-16</lastmod>
   </url>  <url>

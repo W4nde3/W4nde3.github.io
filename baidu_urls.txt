@@ -1,3 +1,5 @@
+https://blog.iwonder.run/2020/12/02/ss-ssr-notes/
+https://blog.iwonder.run/2020/12/02/host-discovery/
 https://blog.iwonder.run/2020/11/17/drupal-8.3.3-rce/
 https://blog.iwonder.run/2020/11/16/books/
 https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/

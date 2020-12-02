@@ -5,6 +5,32 @@
     
     <entry>
       <title></title>
+      <link href="/2020/12/02/ss-ssr-notes/"/>
+      <url>/2020/12/02/ss-ssr-notes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SSR备忘"><a href="#SSR备忘" class="headerlink" title="SSR备忘"></a>SSR备忘</h2><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><pre><code>yum -y install wgetwget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/main/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</code></pre><h2 id="加速-谷歌BBR加速"><a href="#加速-谷歌BBR加速" class="headerlink" title="加速(谷歌BBR加速)"></a>加速(谷歌BBR加速)</h2><pre><code>yum -y install wgetwget –no-check-certificate https://github.com/teddysun/across/raw/master/bbr.shchmod +x bbr.sh./bbr.sh</code></pre><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul><li><p>Windows SSR客户端 <a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/6Jm7WJCyOVv/ShadowsocksR-4.7.0-win.7z" target="_blank" rel="noopener">备用下载地址</a></p></li><li><p>MAC SSR客户端 <a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/jgMWFwCBonU#ab0d3c3b6ac54482" target="_blank" rel="noopener">备用下载地址</a></p></li><li><p>Linux客户端一键安装配置 <a href="https://github.com/the0demiurge/CharlesScripts/blob/master/charles/bin/ssr" target="_blank" rel="noopener">使用脚本</a><br>  图形界面的<a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">linux ssr客户端</a></p></li><li><p>安卓 SSR客户端 <a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/rvTJoj0h5GC/shadowsocksr-release.apk" target="_blank" rel="noopener">备用下载地址</a></p></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2020/12/02/host-discovery/"/>
+      <url>/2020/12/02/host-discovery/</url>
+      
+        <content type="html"><![CDATA[<h1 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h1><h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><pre><code>nmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500msf &gt; use auxiliary/scanner/discovery/udp_probemsf &gt; use auxiliary/scanner/discovery/udp_sweepunicornscan -mU 192.168.1.100ScanLineUDP扫描工具</code></pre><h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h2><pre><code>nmap -sn -PR 192.168.1.1/24msf &gt; use auxiliary/scanner/discovery/arp_sweep(kali)netdiscover -r 192.168.1.0/24 -i wlan0(powershell)powershell.exe -exec bypass -Command "Import-Module .\arpscan.ps1;Invoke-ARPScan -CIDR 192.168.1.0/24"</code></pre><h2 id="Netbios"><a href="#Netbios" class="headerlink" title="Netbios"></a>Netbios</h2><pre><code>nmap -sU --script nbstat.nse -p137 192.168.1.0/24 -T4msf &gt; use auxiliary/scanner/netbios/nbname(kali)nbtscan</code></pre><h2 id="SNMP"><a href="#SNMP" class="headerlink" title="SNMP"></a>SNMP</h2><pre><code>nmap -sU --script snmp-brute 192.168.1.0/24 -T4msf &gt; use auxiliary/scanner/snmp/snmp_enum(kali)snmpbulkwalk(kali)snmp-check(kali)snmptestsnmp scanner(https://www.solarwinds.com/network-performance-monitor/use-cases/snmp-scanner)</code></pre><h2 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h2><pre><code>nmap ‐sn ‐PE ‐T4 192.168.1.0/24nmap ‐sP ‐PI ‐T4 192.168.1.0/24(CMD)for /L %P in (1,1,254) DO @ping ‐w 1 ‐n 1 192.168.1.%P | findstr "TTL ="(powershell)powershell.exe ‐exec bypass ‐Command "Import‐Module ./Invoke‐TSPingSweep.ps1; Invoke‐TSPingSweep ‐StartAddress 192.168.1.1 ‐EndAddress 192.168.1.254 ‐ResolveHost ‐ScanPort ‐Port 445,135"</code></pre><h2 id="SMB"><a href="#SMB" class="headerlink" title="SMB"></a>SMB</h2><pre><code>nmap ‐sU ‐sS ‐‐script smb‐enum‐shares.nse ‐p 445 192.168.1.119msf &gt; use scanner/smb/smb_version(CMD)for /l %a in (1,1,254) do start /min /low telnet 192.168.1.%a 445(powershell单IP)445 | %{ echo ((new‐object Net.Sockets.TcpClient).Connect("192.168.1.119",$_)) "$_ is open"} 2&gt;$null(powershell多IP)1..5 | % { $a = $_; 445 | % {echo ((new‐objectNet.Sockets.TcpClient).Connect("192.168.1.$a",$_)) "Port $_ is open"}2&gt;$null}(powershell多IP多PORT)118..119 | % { $a = $_; write‐host "‐‐‐‐‐‐"; write‐host"192.168.1.$a"; 80,445 | % {echo ((new‐object Net.Sockets.TcpClient).Connect("192.168.1.$a",$_)) "Port $_ is open"} 2&gt;$null}</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/2020/11/17/drupal-8.3.3-rce/"/>
       <url>/2020/11/17/drupal-8.3.3-rce/</url>
       
