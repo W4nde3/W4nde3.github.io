@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.iwonder.run/"/>
-  <updated>2020-12-08T09:17:39.351Z</updated>
+  <updated>2020-12-08T09:30:43.571Z</updated>
   <id>https://blog.iwonder.run/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.iwonder.run/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/"/>
     <id>https://blog.iwonder.run/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/</id>
     <published>2020-12-08T08:06:15.000Z</published>
-    <updated>2020-12-08T09:17:39.351Z</updated>
+    <updated>2020-12-08T09:30:43.571Z</updated>
     
     <summary type="html">
     
@@ -40,11 +40,34 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>免费计算机书籍汇总</title>
+    <link href="https://blog.iwonder.run/2020/12/02/books/"/>
+    <id>https://blog.iwonder.run/2020/12/02/books/</id>
+    <published>2020-12-02T04:00:15.000Z</published>
+    <updated>2020-12-08T09:22:02.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原文链接：&lt;a href=&quot;https://github.com/ruanyf/free-books&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;br&gt;没有注明语种的，都为英语资源。&lt;/p&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SSR备忘</title>
     <link href="https://blog.iwonder.run/2020/12/02/ss-ssr-notes/"/>
     <id>https://blog.iwonder.run/2020/12/02/ss-ssr-notes/</id>
-    <published>2020-12-02T12:31:27.934Z</published>
-    <updated>2020-12-02T17:28:28.347Z</updated>
+    <published>2020-12-01T16:56:15.000Z</published>
+    <updated>2020-12-08T09:32:30.570Z</updated>
     
     <summary type="html">
     
@@ -52,7 +75,8 @@
       
         
         
-          &lt;h2 id=&quot;SSR备忘&quot;&gt;&lt;a href=&quot;#SSR备忘&quot; class=&quot;headerlink&quot; title=&quot;SSR备忘&quot;&gt;&lt;/a&gt;SSR备忘&lt;/h2&gt;&lt;h2 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot; class=&quot;headerlink&quot; title=&quot;部署&quot;&gt;&lt;/a&gt;部署&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;yum -y install wget
+wget -N –no-check-certificate
         
       
     
@@ -62,11 +86,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>主机发现</title>
     <link href="https://blog.iwonder.run/2020/12/02/host-discovery/"/>
     <id>https://blog.iwonder.run/2020/12/02/host-discovery/</id>
-    <published>2020-12-02T08:44:23.454Z</published>
-    <updated>2020-12-02T16:58:23.148Z</updated>
+    <published>2020-12-01T16:18:15.000Z</published>
+    <updated>2020-12-08T09:32:14.084Z</updated>
     
     <summary type="html">
     
@@ -74,7 +98,8 @@
       
         
         
-          &lt;h1 id=&quot;主机发现&quot;&gt;&lt;a href=&quot;#主机发现&quot; class=&quot;headerlink&quot; title=&quot;主机发现&quot;&gt;&lt;/a&gt;主机发现&lt;/h1&gt;&lt;h2 id=&quot;UDP&quot;&gt;&lt;a href=&quot;#UDP&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;UDP&quot;&gt;&lt;a href=&quot;#UDP&quot; class=&quot;headerlink&quot; title=&quot;UDP&quot;&gt;&lt;/a&gt;UDP&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;nmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
+msf
         
       
     
@@ -84,11 +109,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)</title>
     <link href="https://blog.iwonder.run/2020/11/17/drupal-8.3.3-rce/"/>
     <id>https://blog.iwonder.run/2020/11/17/drupal-8.3.3-rce/</id>
-    <published>2020-11-16T16:09:50.049Z</published>
-    <updated>2020-12-08T08:04:52.345Z</updated>
+    <published>2020-11-17T08:04:00.000Z</published>
+    <updated>2020-12-08T09:29:06.503Z</updated>
     
     <summary type="html">
     
@@ -96,7 +121,7 @@
       
         
         
-          &lt;h1 id=&quot;Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920&quot;&gt;&lt;a href=&quot;#Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;复现&quot;&gt;&lt;a href=&quot;#复现&quot; class=&quot;headerlink&quot; title=&quot;复现&quot;&gt;&lt;/a&gt;复现&lt;/h2&gt;&lt;h3 id=&quot;phpinfo&quot;&gt;&lt;a href=&quot;#phpinfo&quot; class=&quot;headerlink&quot;
         
       
     
@@ -106,35 +131,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://blog.iwonder.run/2020/11/16/books/"/>
-    <id>https://blog.iwonder.run/2020/11/16/books/</id>
-    <published>2020-11-16T03:52:31.133Z</published>
-    <updated>2020-11-16T03:52:31.133Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原文链接：&lt;a href=&quot;https://github.com/ruanyf/free-books&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;br&gt;免费计算机书籍汇总。&lt;/p&gt;
-&lt;p&gt;没有注明语种的，都为英语资源。&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
+    <title>CmsEasy &lt; 5.6  代码执行漏洞</title>
     <link href="https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/"/>
     <id>https://blog.iwonder.run/2020/11/11/cmseasy-5.6-getshell/</id>
-    <published>2020-11-11T13:48:34.469Z</published>
-    <updated>2020-11-16T16:20:39.455Z</updated>
+    <published>2020-11-11T07:22:00.000Z</published>
+    <updated>2020-12-08T09:26:58.842Z</updated>
     
     <summary type="html">
     
@@ -142,7 +143,7 @@
       
         
         
-          &lt;h1 id=&quot;CmsEasy-lt-5-6-代码执行漏洞&quot;&gt;&lt;a href=&quot;#CmsEasy-lt-5-6-代码执行漏洞&quot; class=&quot;headerlink&quot; title=&quot;CmsEasy &lt; 5.6  代码执行漏洞&quot;&gt;&lt;/a&gt;CmsEasy &amp;lt; 5.6 
+          &lt;h2 id=&quot;复现&quot;&gt;&lt;a href=&quot;#复现&quot; class=&quot;headerlink&quot; title=&quot;复现&quot;&gt;&lt;/a&gt;复现&lt;/h2&gt;&lt;h3 id=&quot;phpinfo&quot;&gt;&lt;a href=&quot;#phpinfo&quot; class=&quot;headerlink&quot;
         
       
     
@@ -152,11 +153,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>破壳漏洞（CVE-2014-4217）</title>
     <link href="https://blog.iwonder.run/2020/11/09/cve-2014-6271/"/>
     <id>https://blog.iwonder.run/2020/11/09/cve-2014-6271/</id>
-    <published>2020-11-09T13:11:50.341Z</published>
-    <updated>2020-11-09T13:11:50.341Z</updated>
+    <published>2020-11-09T13:11:00.000Z</published>
+    <updated>2020-12-08T09:28:25.102Z</updated>
     
     <summary type="html">
     
@@ -164,7 +165,7 @@
       
         
         
-          &lt;h1 id=&quot;CVE-2014-6271&quot;&gt;&lt;a href=&quot;#CVE-2014-6271&quot; class=&quot;headerlink&quot; title=&quot;CVE-2014-6271&quot;&gt;&lt;/a&gt;CVE-2014-6271&lt;/h1&gt;&lt;h2 id=&quot;复现&quot;&gt;&lt;a href=&quot;#复现&quot;
+          &lt;h2 id=&quot;复现&quot;&gt;&lt;a href=&quot;#复现&quot; class=&quot;headerlink&quot; title=&quot;复现&quot;&gt;&lt;/a&gt;复现&lt;/h2&gt;&lt;p&gt;访问&lt;a href=&quot;http://ip:port/cgi-bin/poc.cgi,修改UA字段执行命令&quot; target=&quot;_blank&quot;
         
       
     

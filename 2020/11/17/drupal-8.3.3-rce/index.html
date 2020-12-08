@@ -5,13 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="W4nde3&#39;s Secret">
+    <meta name="keywords" content="Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920), W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)复现phpinfo
+    <meta name="description" content="复现phpinfo
 搭建好环境，服务开放于http://45.32.74.108:8000 
 
-序列化一个GuzzleHttp\Psr7\FnSt">
+序列化一个GuzzleHttp\Psr7\FnStream类, 并给该序列化字符串加上yaml的!php/object
+!php/object ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>W4nde3&#39;s Secret</title>
+    <title>Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920) | W4nde3&#39;s Secret</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -485,13 +486,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)
                     </div>
                 </div>
             </div>
@@ -627,7 +628,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        772
+                        757
                     </div>
                     
 
@@ -651,7 +652,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920"><a href="#Drupal-PECL-YAML-parser-远程代码执行漏洞-CVE-2017-6920" class="headerlink" title="Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)"></a>Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)</h1><h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h3><ol>
+                <h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="phpinfo"><a href="#phpinfo" class="headerlink" title="phpinfo"></a>phpinfo</h3><ol>
 <li><p>搭建好环境，服务开放于<a href="http://45.32.74.108:8000" target="_blank" rel="noopener">http://45.32.74.108:8000</a> </p>
 </li>
 <li><p>序列化一个<code>GuzzleHttp\Psr7\FnStream</code>类, 并给该序列化字符串加上yaml的<code>!php/object</code></p>
@@ -765,7 +766,7 @@ Content handlers for YAML nodes. Associative array of YAML tag =&gt; callable ma
                     </span>
                     <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/11/17/drupal-8.3.3-rce/" class="b-link-green"></a>
+                    <a href="/2020/11/17/drupal-8.3.3-rce/" class="b-link-green">Drupal PECL YAML parser 远程代码执行漏洞(CVE-2017-6920)</a>
                 </p>
             </div>
 
@@ -795,17 +796,17 @@ Content handlers for YAML nodes. Associative array of YAML tag =&gt; callable ma
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="主机发现">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">主机发现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主机发现UDPnmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
+                            UDPnmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
 msf &gt; use auxiliary/scanner/discovery/udp_probe
-msf &gt;
+msf &gt; use
                         
                     </div>
                     <div class="publish-info">
@@ -827,37 +828,25 @@ msf &gt;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/16/books/">
+                <a href="/2020/11/11/cmseasy-5.6-getshell/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CmsEasy < 5.6  代码执行漏洞">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">CmsEasy < 5.6  代码执行漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            原文链接：传送门免费计算机书籍汇总。
-没有注明语种的，都为英语资源。
-目录
-一、Web 开发
-二、系统管理
-三、编程语言
-四、数据库
-五、软件开发
-六、人工智能
-七、数学理论
-八、其他
-
-一、Web 开发1.1 JavaScript 语言
-
+                            复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下POST访问搭建好的漏洞环境：
+http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-11
                             </span>
                         <span class="publish-author">
                             
@@ -1035,7 +1024,7 @@ msf &gt;
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">5k</span> 字
+                <span class="white-color">5.1k</span> 字
             
 
             
@@ -1222,5 +1211,5 @@ $(function () {
         <!-- 背景动态彩带 -->
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
