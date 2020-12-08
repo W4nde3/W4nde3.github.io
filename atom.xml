@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.iwonder.run/"/>
-  <updated>2020-12-08T09:30:43.571Z</updated>
+  <updated>2020-12-08T13:24:18.164Z</updated>
   <id>https://blog.iwonder.run/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git远程代码执行漏洞(CVE-2018-11235)</title>
+    <link href="https://blog.iwonder.run/2020/12/08/git-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2018-11235/"/>
+    <id>https://blog.iwonder.run/2020/12/08/git-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2018-11235/</id>
+    <published>2020-12-08T11:56:21.000Z</published>
+    <updated>2020-12-08T13:24:18.164Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;影响范围&quot;&gt;&lt;a href=&quot;#影响范围&quot; class=&quot;headerlink&quot; title=&quot;影响范围&quot;&gt;&lt;/a&gt;影响范围&lt;/h2&gt;&lt;p&gt;Git version &amp;lt; 2.13.7&lt;br&gt;Git version 2.14.x &amp;lt;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>FFmpeg 文件读取漏洞(CVE-2017-9993)</title>

