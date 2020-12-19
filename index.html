@@ -537,11 +537,14 @@
         </div>
     </div>
 </div>
-<script>
-// 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
 
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    // new Date().getDay()
+    // Math.ceil(Math.random()*10)
+    var array = ['1','2','3']
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + array[Math.round(Math.random() * array.length)] + '.jpg)');
+</script>
 
 
             <div class="cover-btns">
@@ -715,7 +718,7 @@ $(function () {
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="phpmailer(CVE-2016-10033)">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="phpmailer(CVE-2016-10033)">
                             
                             <span class="card-title">phpmailer(CVE-2016-10033)</span>
                         </div>
@@ -751,7 +754,7 @@ require_once(
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ImageMagick系列漏洞">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ImageMagick系列漏洞">
                             
                             <span class="card-title">ImageMagick系列漏洞</span>
                         </div>
@@ -817,7 +820,7 @@ echo set a=cre
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Git远程代码执行漏洞(CVE-2018-11235)">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Git远程代码执行漏洞(CVE-2018-11235)">
                             
                             <span class="card-title">Git远程代码执行漏洞(CVE-2018-11235)</span>
                         </div>
@@ -849,7 +852,7 @@ echo set a=cre
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="FFmpeg 文件读取漏洞(CVE-2017-9993)">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="FFmpeg 文件读取漏洞(CVE-2017-9993)">
                             
                             <span class="card-title">FFmpeg 文件读取漏洞(CVE-2017-9993)</span>
                         </div>
@@ -930,7 +933,7 @@ echo set a=cre
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="SSR备忘">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SSR备忘">
                             
                             <span class="card-title">SSR备忘</span>
                         </div>
@@ -1260,7 +1263,7 @@ $(function () {
             var OriginTitile = document.title,
                 st;
             document.addEventListener("visibilitychange", function () {
-                document.hidden ? (document.title = "😠给爷回来~", clearTimeout(st)) : (document.title =
+                document.hidden ? (document.title = "❤️点这里~", clearTimeout(st)) : (document.title =
                     "(๑•̀ㅂ•́) ✧你回来啦～", st = setTimeout(function () {
                         document.title = OriginTitile
                     }, 3e3))
@@ -1311,5 +1314,5 @@ $(function () {
         <!-- 背景动态彩带 -->
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

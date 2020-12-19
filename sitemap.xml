@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.iwonder.run/404.html</loc>
+    
+    <lastmod>2020-12-19T06:05:40.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.iwonder.run/2020/12/18/phpmailer-cve-2016-10033/</loc>
     
     <lastmod>2020-12-18T13:31:35.033Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>https://blog.iwonder.run/about/index.html</loc>
     
     <lastmod>2020-11-03T11:53:30.425Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.iwonder.run/404.html</loc>
-    
-    <lastmod>2020-07-01T09:09:44.000Z</lastmod>
     
   </url>
   
