@@ -1,3 +1,4 @@
+https://blog.iwonder.run/2020/12/20/zabbix-sql-zhu-ru-lou-dong-cve-2016-10134/
 https://blog.iwonder.run/2020/12/19/supervisor-rce-cve-2017-11610/
 https://blog.iwonder.run/2020/12/18/phpmailer-cve-2016-10033/
 https://blog.iwonder.run/2020/12/18/imagemagick-xi-lie-lou-dong/
