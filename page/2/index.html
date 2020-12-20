@@ -497,7 +497,22 @@
     // new Date().getDay()
     // Math.ceil(Math.random()*10)
     var array = ['1','2','3']
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + array[Math.round(Math.random() * array.length)] + '.jpg)');
+
+    // 数组随机取值的函数
+//     function getRandomArrayElements(arr, count) {
+//       var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+//       while (i-- > min) {
+//           index = Math.floor((i + 1) * Math.random());
+//           temp = shuffled[index];
+//           shuffled[index] = shuffled[i];
+//           shuffled[i] = temp;
+//       }
+//       return shuffled.slice(min);
+//     }
+// var items = [1,2,3];
+// console.log(getRandomArrayElements(items, 1));
+
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + array[Math.floor(Math.random() * array.length)] + '.jpg)');
 </script>
 
     </div>
