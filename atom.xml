@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.iwonder.run/"/>
-  <updated>2020-12-20T15:01:42.862Z</updated>
+  <updated>2020-12-23T06:15:31.539Z</updated>
   <id>https://blog.iwonder.run/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>zabbix SQL注入漏洞（CVE-2016-10134）</title>
-    <link href="https://blog.iwonder.run/2020/12/20/zabbix-sql-zhu-ru-lou-dong-cve-2016-10134/"/>
-    <id>https://blog.iwonder.run/2020/12/20/zabbix-sql-zhu-ru-lou-dong-cve-2016-10134/</id>
-    <published>2020-12-20T07:48:10.000Z</published>
-    <updated>2020-12-20T15:01:42.862Z</updated>
+    <title>Portswigger Username Enumeration</title>
+    <link href="https://blog.iwonder.run/2020/12/22/portswigger-username-enumeration/"/>
+    <id>https://blog.iwonder.run/2020/12/22/portswigger-username-enumeration/</id>
+    <published>2020-12-22T08:24:03.000Z</published>
+    <updated>2020-12-23T06:15:31.539Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Zabbix 是一个基于 WEB
+          &lt;h2 id=&quot;via-differrnt-responses&quot;&gt;&lt;a href=&quot;#via-differrnt-responses&quot; class=&quot;headerlink&quot; title=&quot;via differrnt responses&quot;&gt;&lt;/a&gt;via differrnt
         
       
     
@@ -43,7 +43,7 @@
     <link href="https://blog.iwonder.run/2020/12/20/zabbix-sql-zhu-ru-lou-dong-cve-2016-10134/"/>
     <id>https://blog.iwonder.run/2020/12/20/zabbix-sql-zhu-ru-lou-dong-cve-2016-10134/</id>
     <published>2020-12-20T07:48:10.000Z</published>
-    <updated>2020-12-20T15:24:34.181Z</updated>
+    <updated>2020-12-20T15:01:42.862Z</updated>
     
     <summary type="html">
     
