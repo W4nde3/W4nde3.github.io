@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.12/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
     
     <style type="text/css">
         
@@ -716,13 +718,13 @@ convert test.png o.show</code></pre><h2 id="漏洞修复"><a href="#漏洞修复
 <li><p>限制委托功能，检查图片头，如果格式非预期就写函数处理而不用imagemagick处理，php中可以使用getimagesize函数检查格式</p>
 </li>
 <li><p>使用policy file防御此漏洞，可配置policy.xml文件禁止敏感操作</p>
-<pre><code>&lt;policymap&gt;
-&lt;policy domain="coder" rights="none" pattern="EPHEMERAL" /&gt;
-&lt;policy domain="coder" rights="none" pattern="URL" /&gt;
-&lt;policy domain="coder" rights="none" pattern="HTTPS" /&gt;
-&lt;policy domain="coder" rights="none" pattern="MVG" /&gt;
-&lt;policy domain="coder" rights="none" pattern="MSL" /&gt;
-&lt;/policymap&gt; </code></pre></li>
+<pre><code> &lt;policymap&gt;
+ &lt;policy domain="coder" rights="none" pattern="EPHEMERAL" /&gt;
+ &lt;policy domain="coder" rights="none" pattern="URL" /&gt;
+ &lt;policy domain="coder" rights="none" pattern="HTTPS" /&gt;
+ &lt;policy domain="coder" rights="none" pattern="MVG" /&gt;
+ &lt;policy domain="coder" rights="none" pattern="MSL" /&gt;
+ &lt;/policymap&gt; </code></pre></li>
 </ol>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
 <li><a href="https://imagetragick.com/" target="_blank" rel="noopener">https://imagetragick.com/</a></li>
@@ -1034,7 +1036,7 @@ echo set a=cre
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">15.4k</span> 字
+                <span class="white-color">15.5k</span> 字
             
 
             
