@@ -1,3 +1,4 @@
+https://blog.iwonder.run/2021/02/24/apache-druid-rce-cve-2021-25646/
 https://blog.iwonder.run/2021/02/15/apache-solr-yuan-cheng-dai-ma-zhi-xing-lou-dong-cve-2019-0193/
 https://blog.iwonder.run/2021/02/10/20210210110211/
 https://blog.iwonder.run/2021/01/22/gong-ju-xiang/
