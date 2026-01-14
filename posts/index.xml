@@ -1,64 +1,136 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on W4nder's Blog</title><link>https://wanderrun.space/posts/</link><description>Recent content in Posts on W4nder's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://wanderrun.space/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating a New Theme</title><link>https://wanderrun.space/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/creating-a-new-theme/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p&gt;</description></item><item><title>Migrate to Hugo from Jekyll</title><link>https://wanderrun.space/posts/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/migrate-from-jekyll/</guid><description>&lt;h2 id="move-static-content-to-static"&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
-With Jekyll, something that looked like&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
- ▾ images/
- logo.png
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;should become&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
- ▾ static/
- ▾ images/
- logo.png
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code&gt;CNAME&lt;/code&gt;) to be moved to &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Higress 离线部署实践</title><link>https://wanderrun.space/posts/higress%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/higress%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Wander Run</title><link>https://wanderrun.space/posts/</link><description>Recent content in Posts on Wander Run</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener"&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://wanderrun.space/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Higress 离线部署实践</title><link>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
 &lt;h2 id="问题背景"&gt;问题背景&lt;/h2&gt;
-&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;</description></item><item><title>Création d'un nouveau thème</title><link>https://wanderrun.space/posts/creation-dun-nouveau-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/creation-dun-nouveau-theme/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Ce tutoriel vous montrera comment créer un thème simple pour Hugo. Je suppose que vous êtes familier avec HTML, la ligne de commande bash, et que vous êtes à l&amp;rsquo;aise avec Markdown pour formater le contenu. Je vais expliquer comment Hugo utilise des modèles et comment vous pouvez organiser vos modèles pour créer un thème. Je ne couvrirai pas l&amp;rsquo;utilisation de CSS pour styliser votre thème.&lt;/p&gt;
-&lt;p&gt;Nous allons commencer par créer un nouveau site avec un modèle très basique. Ensuite, nous ajouterons quelques pages et des publications. Avec de petites variations, vous pourrez créer de nombreux types de sites web.&lt;/p&gt;</description></item><item><title>(Hu)go Template Primer</title><link>https://wanderrun.space/posts/goisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/goisforlovers/</guid><description>&lt;p&gt;Hugo uses the excellent &lt;a href="https://golang.org/"&gt;Go&lt;/a&gt; &lt;a href="https://golang.org/pkg/html/template/"&gt;html/template&lt;/a&gt; library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static website. If you have used other
-template systems from different languages or frameworks you will find a lot of
-similarities in Go templates.&lt;/p&gt;
-&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href="https://golang.org/pkg/html/template/"&gt;Go docs&lt;/a&gt;
-provide more details.&lt;/p&gt;</description></item><item><title>Débuter avec Hugo</title><link>https://wanderrun.space/posts/debuter-avec-hugo/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/debuter-avec-hugo/</guid><description>&lt;h2 id="étape-1-installer-hugo"&gt;Étape 1. Installer Hugo&lt;/h2&gt;
-&lt;p&gt;Allez sur la page de téléchargements de
-&lt;a href="https://github.com/spf13/hugo/releases"&gt;hugo&lt;/a&gt; et téléchargez la version
-appropriée à votre système d&amp;rsquo;exploitation et votre architecture.&lt;/p&gt;
-&lt;p&gt;Sauvegardez le fichier téléchargé à un endroit précis, afin de l&amp;rsquo;utiliser dans
-l&amp;rsquo;étape suivante.&lt;/p&gt;
-&lt;p&gt;Des informations plus complètes sont disponibles sur la page
-&lt;a href="https://wanderrun.space/overview/installing/"&gt;installing hugo&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Getting Started with Hugo</title><link>https://wanderrun.space/posts/hugoisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/hugoisforlovers/</guid><description>&lt;h2 id="step-1-install-hugo"&gt;Step 1. Install Hugo&lt;/h2&gt;
-&lt;p&gt;Go to &lt;a href="https://github.com/spf13/hugo/releases"&gt;Hugo releases&lt;/a&gt; and download the
-appropriate version for your OS and architecture.&lt;/p&gt;
-&lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
-&lt;p&gt;More complete instructions are available at &lt;a href="https://gohugo.io/getting-started/installing/"&gt;Install Hugo&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="step-2-build-the-docs"&gt;Step 2. Build the Docs&lt;/h2&gt;
-&lt;p&gt;Hugo has its own example site which happens to also be the documentation site
-you are reading right now.&lt;/p&gt;
-&lt;p&gt;Follow the following steps:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Clone the &lt;a href="http://github.com/spf13/hugo"&gt;Hugo repository&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Go into the repo&lt;/li&gt;
-&lt;li&gt;Run hugo in server mode and build the docs&lt;/li&gt;
-&lt;li&gt;Open your browser to http://localhost:1313&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Corresponding pseudo commands:&lt;/p&gt;</description></item><item><title>Introduction aux modèles (Hu)go</title><link>https://wanderrun.space/posts/introduction-aux-modeles-hugo/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/introduction-aux-modeles-hugo/</guid><description>&lt;p&gt;Hugo utilise l&amp;rsquo;excellente librairie &lt;a href="http://golang.org/"&gt;go&lt;/a&gt; &lt;a href="http://golang.org/pkg/html/template/"&gt;html/template&lt;/a&gt; pour
-son moteur de modèles. c&amp;rsquo;est un moteur extrêmement léger qui offre un très petit
-nombre de fonctions logiques. À notre expérience, c&amp;rsquo;est juste ce qu&amp;rsquo;il faut pour
-créer un bon site web statique. Si vous avez déjà utilisé d&amp;rsquo;autre moteurs de
-modèles pour différents langages ou frameworks, vous allez retrouver beaucoup de
-similitudes avec les modèles go.&lt;/p&gt;
-&lt;p&gt;Ce document est une introduction sur l&amp;rsquo;utilisation de Go templates. La
-&lt;a href="http://golang.org/pkg/html/template/"&gt;documentation go&lt;/a&gt; fourni plus de détails.&lt;/p&gt;</description></item><item><title>Migrer vers Hugo depuis Jekyll</title><link>https://wanderrun.space/posts/migrer-vers-hugo-depuis-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/migrer-vers-hugo-depuis-jekyll/</guid><description>&lt;h2 id="déplacez-le-contenu-statique-vers-static"&gt;Déplacez le contenu statique vers &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Jekyll a une règle comme quoi tout répertoire qui ne commence pas par &lt;code&gt;_&lt;/code&gt; sera
-copié tel-quel dans le répertoire &lt;code&gt;_site&lt;/code&gt;. Hugo garde tout le contenu statique
-dans le répertoire &lt;code&gt;static&lt;/code&gt;. Vous devez donc déplacer tout ce type de contenu
-là-dedans. Avec Jekylll, l&amp;rsquo;arborescence ressemblant à ceci :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
- ▾ images/
- logo.png
-&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
+&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;
+&lt;h2 id="资源准备"&gt;资源准备&lt;/h2&gt;
+&lt;p&gt;在一台能上网的机器上操作：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 下载 Higress 镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 打包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker save -o higress.tar higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把 &lt;code&gt;higress.tar&lt;/code&gt; 传到离线环境服务器。&lt;/p&gt;
+&lt;h2 id="离线安装"&gt;离线安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 加载镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker load -i higress.tar
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 为了方便版本管理，查阅到当前版本为2.1.9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAGE_ID&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;docker images | grep higress | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $3}&amp;#39;&lt;/span&gt; | head -1&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker tag $IMAGE_ID higress-allinone:v2.1.9
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 创建数据目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p /root/higress
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 启动容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name higress-ai &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart always &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55001:8001 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55002:8080 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55003:8443 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v /root/higress:/data &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; higress-allinone:v2.1.9
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检查一下容器状态：&lt;/p&gt;</description><content type="html"><![CDATA[<p>前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。</p>
+<h2 id="问题背景">问题背景</h2>
+<p>由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动</p>
+<h2 id="资源准备">资源准备</h2>
+<p>在一台能上网的机器上操作：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 下载 Higress 镜像</span>
+</span></span><span style="display:flex;"><span>docker pull higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 打包</span>
+</span></span><span style="display:flex;"><span>docker save -o higress.tar higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
+</span></span></code></pre></div><p>把 <code>higress.tar</code> 传到离线环境服务器。</p>
+<h2 id="离线安装">离线安装</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 加载镜像</span>
+</span></span><span style="display:flex;"><span>docker load -i higress.tar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为了方便版本管理，查阅到当前版本为2.1.9</span>
+</span></span><span style="display:flex;"><span>IMAGE_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>docker images | grep higress | awk <span style="color:#e6db74">&#39;{print $3}&#39;</span> | head -1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>docker tag $IMAGE_ID higress-allinone:v2.1.9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建数据目录</span>
+</span></span><span style="display:flex;"><span>mkdir -p /root/higress
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启动容器</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射</span>
+</span></span><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --name higress-ai <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --restart always <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55001:8001 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55002:8080 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55003:8443 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -v /root/higress:/data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  higress-allinone:v2.1.9
+</span></span></code></pre></div><p>检查一下容器状态：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps | grep higress-ai
+</span></span><span style="display:flex;"><span>docker logs higress-ai
+</span></span></code></pre></div><p>看到容器正常运行，访问 <code>http://[服务器IP]:55001</code> 能打开控制台就 OK 了。</p>
+<h2 id="创建ai网关服务和路由">创建AI网关服务和路由</h2>
+<p>创建AI服务Providers
+<img src="https://cdn.jsdelivr.net/gh/W4nde3/blog-images@main/img/20260115004625823.png" alt=""></p>
+<p>创建AI服务Route
+<img src="https://cdn.jsdelivr.net/gh/W4nde3/blog-images@main/img/20260115004945408.png" alt=""></p>
+<h2 id="踩坑记录">踩坑记录</h2>
+<p>ALLINONE模式启动时，8001端口服务正常，8080、8443端口均未监听，网关服务启动失败，看网关启动日志：</p>
+<pre tabindex="0"><code>docker exec higress-ai cat /var/log/higress/gateway.log
+</code></pre><p><img src="https://cdn.jsdelivr.net/gh/W4nde3/blog-images@main/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_90a1fdb3-a0cb-48ab-8709-b47408df81ce.png" alt=""></p>
+<p>事实上，根据官方文档的allinone模式启动时(<a href="https://higress.cn/docs/latest/user/quickstart/#%E7%8E%AF%E5%A2%83%E4%BA%8C%E8%84%B1%E7%A6%BB-k8s-%E4%BD%BF%E7%94%A8">quickstart/#环境二脱离-k8s-使用</a>），仍然需要公网环境拉取插件的OCI镜像。</p>
+<h3 id="方案一失败">方案一（失败）</h3>
+<p>想办法让内网环境出网，此种情况至少需要一条出网路径，且需搭建多层代理，条件较为苛刻，且实践后发现仍然有问题：拉取的OCI镜像文件与预期层数不一致</p>
+<h3 id="方案二推荐">方案二（推荐）</h3>
+<p>手动拉取缺失的镜像文件。修改配置文件切换加载模式，以绕过公网依赖，注意此种方法可能不适用多插件场景</p>
+<p>结合/var/log/higress/gateway.log文件日志，和/root/higress/wasmplugins下配置文件，只有四个核心插件需要安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@pm-18420026 higress<span style="color:#f92672">]</span><span style="color:#75715e"># pwd</span>
+</span></span><span style="display:flex;"><span>/root/higress
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@pm-18420026 higress<span style="color:#f92672">]</span><span style="color:#75715e"># ls wasmplugins/</span>
+</span></span><span style="display:flex;"><span>ai-proxy.internal.yaml  ai-statistics-1.0.0.yaml  key-auth.internal.yaml  model-mapper.internal.yaml
+</span></span></code></pre></div><p>在有网络的主机上安装oras工具：<a href="https://github.com/oras-project/oras/releases/download/">oras下载链接</a></p>
+<p>拉取oci，提取wasm文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PLUGINS<span style="color:#f92672">=(</span><span style="color:#e6db74">&#34;key-auth&#34;</span> <span style="color:#e6db74">&#34;ai-proxy&#34;</span> <span style="color:#e6db74">&#34;model-mapper&#34;</span> <span style="color:#e6db74">&#34;ai-statistics&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> plugin in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PLUGINS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  oras copy <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/$plugin:2.0.0 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --to-oci-layout ./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>-oci
+</span></span><span style="display:flex;"><span>  BLOB_DIR<span style="color:#f92672">=</span>./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>-oci/blobs/sha256
+</span></span><span style="display:flex;"><span>  LARGEST_BLOB<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls -S $BLOB_DIR | head -1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>  cp $BLOB_DIR/$LARGEST_BLOB ./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>.wasm
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>批量上传到/root/higress/wasm-plugins-downloaded文件夹，校验wasm文件格式是否正确：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> f in *.wasm; <span style="color:#66d9ef">do</span>   echo <span style="color:#e6db74">&#34;Checking </span>$f<span style="color:#e6db74">:&#34;</span>;   hexdump -C <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> | head -1; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预期示例</span>
+</span></span><span style="display:flex;"><span>Checking ai-proxy.wasm:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">00</span> f2 <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">00</span> 0a <span style="color:#ae81ff">67</span>  |.asm...........g|
+</span></span><span style="display:flex;"><span>Checking ai-statistics.wasm:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">00</span> f2 <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">00</span> 0a <span style="color:#ae81ff">67</span>  |.asm...........g|
+</span></span><span style="display:flex;"><span>Checking key-auth.wasm:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">01</span> a1 <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">01</span> 7f <span style="color:#ae81ff">01</span>  |.asm.......<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>...|
+</span></span><span style="display:flex;"><span>Checking model-mapper.wasm:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">01</span> 9e <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">01</span> 7f <span style="color:#ae81ff">01</span>  |.asm.......<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>...|
+</span></span></code></pre></div><p>如果存在文件头不为.asm，需确认文件完整性（可能需要tar zxvf解压）</p>
+<p>由于部署higress-ai容器时路径已经挂载，直接修改配置文件即可：以ai-statistics插件为例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#修改wasm加载路径：</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim ai-statistics-1.0.0.yaml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  url: file:///data/wasm-plugins-downloaded/ai-statistics.wasm
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># url: oci://higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/ai-statistics:2.0.0</span>
+</span></span></code></pre></div><p>确保所有插件的配置文件均完成修改：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -rn <span style="color:#e6db74">&#39;file://&#39;</span> ./
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./ai-statistics-1.0.0.yaml:68:  url: file:///data/wasm-plugins-downloaded/ai-statistics.wasm  
+</span></span><span style="display:flex;"><span>./key-auth.internal.yaml:76:  url: file:///data/wasm-plugins-downloaded/key-auth.wasm
+</span></span><span style="display:flex;"><span>./model-mapper.internal.yaml:136:  url: file:///data/wasm-plugins-downloaded/model-mapper.wasm
+</span></span><span style="display:flex;"><span>./ai-proxy.internal.yaml:259:  url: file:///data/wasm-plugins-downloaded/ai-proxy.wasm
+</span></span></code></pre></div><p>重启higress-ai，观察/var/log/higress/gateway.log文件，即不会出现wasm fetching image errors问题</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec higress-ai cat /var/log/higress/gateway.log
+</span></span></code></pre></div><h2 id="调用测试">调用测试</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/W4nde3/blog-images@main/img/20260115005127036.png" alt=""></p>
+<hr>
+<p><em>参考：<a href="https://higress.io/docs">Higress 官方文档</a></em></p>
+<p><em>相同问题：<a href="https://github.com/alibaba/higress/issues/3285">Github ISSUES</a></em></p>
+]]></content></item></channel></rss>
