@@ -1,69 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Wander Run</title><link>https://wanderrun.space/posts/</link><description>Recent content in Posts on Wander Run</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener"&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://wanderrun.space/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Higress 离线部署实践</title><link>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Wander Run</title><link>https://www.wanderrun.space/posts/</link><description>Recent content in Posts on Wander Run</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener"&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://www.wanderrun.space/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Higress 离线部署实践</title><link>https://www.wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://www.wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
 &lt;h2 id="问题背景"&gt;问题背景&lt;/h2&gt;
-&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;
-&lt;h2 id="资源准备"&gt;资源准备&lt;/h2&gt;
-&lt;p&gt;在一台能上网的机器上操作：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 下载 Higress 镜像&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 打包&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker save -o higress.tar higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把 &lt;code&gt;higress.tar&lt;/code&gt; 传到离线环境服务器。&lt;/p&gt;
-&lt;h2 id="离线安装"&gt;离线安装&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 加载镜像&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker load -i higress.tar
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 为了方便版本管理，查阅到当前版本为2.1.9&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAGE_ID&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;docker images | grep higress | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $3}&amp;#39;&lt;/span&gt; | head -1&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker tag $IMAGE_ID higress-allinone:v2.1.9
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 创建数据目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p /root/higress
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 启动容器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name higress-ai &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart always &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55001:8001 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55002:8080 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55003:8443 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v /root/higress:/data &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; higress-allinone:v2.1.9
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检查一下容器状态：&lt;/p&gt;</description><content type="html"><![CDATA[<p>前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。</p>
+&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;</description><content type="html"><![CDATA[<p>前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。</p>
 <h2 id="问题背景">问题背景</h2>
 <p>由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动</p>
 <h2 id="资源准备">资源准备</h2>
 <p>在一台能上网的机器上操作：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 下载 Higress 镜像</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 下载 Higress 镜像</span>
 </span></span><span style="display:flex;"><span>docker pull higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 打包</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 打包</span>
 </span></span><span style="display:flex;"><span>docker save -o higress.tar higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
 </span></span></code></pre></div><p>把 <code>higress.tar</code> 传到离线环境服务器。</p>
 <h2 id="离线安装">离线安装</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 加载镜像</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 加载镜像</span>
 </span></span><span style="display:flex;"><span>docker load -i higress.tar
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为了方便版本管理，查阅到当前版本为2.1.9</span>
-</span></span><span style="display:flex;"><span>IMAGE_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>docker images | grep higress | awk <span style="color:#e6db74">&#39;{print $3}&#39;</span> | head -1<span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>docker tag $IMAGE_ID higress-allinone:v2.1.9
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 为了方便版本管理，查阅到当前版本为2.1.9</span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">IMAGE_ID</span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#ff7b72">$(</span>docker images | grep higress | awk <span style="color:#a5d6ff">&#39;{print $3}&#39;</span> | head -1<span style="color:#ff7b72">)</span>
+</span></span><span style="display:flex;"><span>docker tag <span style="color:#79c0ff">$IMAGE_ID</span> higress-allinone:v2.1.9
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建数据目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 创建数据目录</span>
 </span></span><span style="display:flex;"><span>mkdir -p /root/higress
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启动容器</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射</span>
-</span></span><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --name higress-ai <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --restart always <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -p 55001:8001 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -p 55002:8080 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -p 55003:8443 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -v /root/higress:/data <span style="color:#ae81ff">\
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 启动容器</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射</span>
+</span></span><span style="display:flex;"><span>docker run -d <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  --name higress-ai <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  --restart always <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55001:8001 <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55002:8080 <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  -p 55003:8443 <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>  -v /root/higress:/data <span style="color:#79c0ff">\
 </span></span></span><span style="display:flex;"><span>  higress-allinone:v2.1.9
 </span></span></code></pre></div><p>检查一下容器状态：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps | grep higress-ai
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps | grep higress-ai
 </span></span><span style="display:flex;"><span>docker logs higress-ai
 </span></span></code></pre></div><p>看到容器正常运行，访问 <code>http://[服务器IP]:55001</code> 能打开控制台就 OK 了。</p>
 <h2 id="创建ai网关服务和路由">创建AI网关服务和路由</h2>
@@ -81,53 +51,53 @@
 <h3 id="方案二推荐">方案二（推荐）</h3>
 <p>手动拉取缺失的镜像文件。修改配置文件切换加载模式，以绕过公网依赖，注意此种方法可能不适用多插件场景</p>
 <p>结合/var/log/higress/gateway.log文件日志，和/root/higress/wasmplugins下配置文件，只有四个核心插件需要安装</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@pm-18420026 higress<span style="color:#f92672">]</span><span style="color:#75715e"># pwd</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">[</span>root@pm-18420026 higress<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#8b949e;font-style:italic"># pwd</span>
 </span></span><span style="display:flex;"><span>/root/higress
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@pm-18420026 higress<span style="color:#f92672">]</span><span style="color:#75715e"># ls wasmplugins/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">[</span>root@pm-18420026 higress<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#8b949e;font-style:italic"># ls wasmplugins/</span>
 </span></span><span style="display:flex;"><span>ai-proxy.internal.yaml  ai-statistics-1.0.0.yaml  key-auth.internal.yaml  model-mapper.internal.yaml
 </span></span></code></pre></div><p>在有网络的主机上安装oras工具：<a href="https://github.com/oras-project/oras/releases/download/">oras下载链接</a></p>
 <p>拉取oci，提取wasm文件</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>PLUGINS<span style="color:#f92672">=(</span><span style="color:#e6db74">&#34;key-auth&#34;</span> <span style="color:#e6db74">&#34;ai-proxy&#34;</span> <span style="color:#e6db74">&#34;model-mapper&#34;</span> <span style="color:#e6db74">&#34;ai-statistics&#34;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">PLUGINS</span><span style="color:#ff7b72;font-weight:bold">=(</span><span style="color:#a5d6ff">&#34;key-auth&#34;</span> <span style="color:#a5d6ff">&#34;ai-proxy&#34;</span> <span style="color:#a5d6ff">&#34;model-mapper&#34;</span> <span style="color:#a5d6ff">&#34;ai-statistics&#34;</span><span style="color:#ff7b72;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> plugin in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PLUGINS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  oras copy <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/$plugin:2.0.0 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --to-oci-layout ./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>-oci
-</span></span><span style="display:flex;"><span>  BLOB_DIR<span style="color:#f92672">=</span>./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>-oci/blobs/sha256
-</span></span><span style="display:flex;"><span>  LARGEST_BLOB<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls -S $BLOB_DIR | head -1<span style="color:#66d9ef">)</span>
-</span></span><span style="display:flex;"><span>  cp $BLOB_DIR/$LARGEST_BLOB ./wasm-plugins/<span style="color:#e6db74">${</span>plugin<span style="color:#e6db74">}</span>.wasm
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> plugin in <span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">${</span><span style="color:#79c0ff">PLUGINS</span>[@]<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>; <span style="color:#ff7b72">do</span>
+</span></span><span style="display:flex;"><span>  oras copy <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>    higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/<span style="color:#79c0ff">$plugin</span>:2.0.0 <span style="color:#79c0ff">\
+</span></span></span><span style="display:flex;"><span>    --to-oci-layout ./wasm-plugins/<span style="color:#a5d6ff">${</span><span style="color:#79c0ff">plugin</span><span style="color:#a5d6ff">}</span>-oci
+</span></span><span style="display:flex;"><span>  <span style="color:#79c0ff">BLOB_DIR</span><span style="color:#ff7b72;font-weight:bold">=</span>./wasm-plugins/<span style="color:#a5d6ff">${</span><span style="color:#79c0ff">plugin</span><span style="color:#a5d6ff">}</span>-oci/blobs/sha256
+</span></span><span style="display:flex;"><span>  <span style="color:#79c0ff">LARGEST_BLOB</span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#ff7b72">$(</span>ls -S <span style="color:#79c0ff">$BLOB_DIR</span> | head -1<span style="color:#ff7b72">)</span>
+</span></span><span style="display:flex;"><span>  cp <span style="color:#79c0ff">$BLOB_DIR</span>/<span style="color:#79c0ff">$LARGEST_BLOB</span> ./wasm-plugins/<span style="color:#a5d6ff">${</span><span style="color:#79c0ff">plugin</span><span style="color:#a5d6ff">}</span>.wasm
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">done</span>
 </span></span></code></pre></div><p>批量上传到/root/higress/wasm-plugins-downloaded文件夹，校验wasm文件格式是否正确：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> f in *.wasm; <span style="color:#66d9ef">do</span>   echo <span style="color:#e6db74">&#34;Checking </span>$f<span style="color:#e6db74">:&#34;</span>;   hexdump -C <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> | head -1; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> f in *.wasm; <span style="color:#ff7b72">do</span>   echo <span style="color:#a5d6ff">&#34;Checking </span><span style="color:#79c0ff">$f</span><span style="color:#a5d6ff">:&#34;</span>;   hexdump -C <span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">$f</span><span style="color:#a5d6ff">&#34;</span> | head -1; <span style="color:#ff7b72">done</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预期示例</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># 预期示例</span>
 </span></span><span style="display:flex;"><span>Checking ai-proxy.wasm:
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">00</span> f2 <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">00</span> 0a <span style="color:#ae81ff">67</span>  |.asm...........g|
+</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">00000000</span>  <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">61</span> <span style="color:#a5d6ff">73</span> 6d <span style="color:#a5d6ff">01</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span>  <span style="color:#a5d6ff">00</span> f2 <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">00</span> 0a <span style="color:#a5d6ff">67</span>  |.asm...........g|
 </span></span><span style="display:flex;"><span>Checking ai-statistics.wasm:
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">00</span> f2 <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">00</span> 0a <span style="color:#ae81ff">67</span>  |.asm...........g|
+</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">00000000</span>  <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">61</span> <span style="color:#a5d6ff">73</span> 6d <span style="color:#a5d6ff">01</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span>  <span style="color:#a5d6ff">00</span> f2 <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">80</span> <span style="color:#a5d6ff">00</span> 0a <span style="color:#a5d6ff">67</span>  |.asm...........g|
 </span></span><span style="display:flex;"><span>Checking key-auth.wasm:
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">01</span> a1 <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">01</span> 7f <span style="color:#ae81ff">01</span>  |.asm.......<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>...|
+</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">00000000</span>  <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">61</span> <span style="color:#a5d6ff">73</span> 6d <span style="color:#a5d6ff">01</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span>  <span style="color:#a5d6ff">01</span> a1 <span style="color:#a5d6ff">02</span> <span style="color:#a5d6ff">29</span> <span style="color:#a5d6ff">60</span> <span style="color:#a5d6ff">01</span> 7f <span style="color:#a5d6ff">01</span>  |.asm.......<span style="color:#ff7b72;font-weight:bold">)</span><span style="color:#a5d6ff">`</span>...|
 </span></span><span style="display:flex;"><span>Checking model-mapper.wasm:
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">00000000</span>  <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">73</span> 6d <span style="color:#ae81ff">01</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>  <span style="color:#ae81ff">01</span> 9e <span style="color:#ae81ff">02</span> <span style="color:#ae81ff">29</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">01</span> 7f <span style="color:#ae81ff">01</span>  |.asm.......<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>...|
+</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">00000000</span>  <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">61</span> <span style="color:#a5d6ff">73</span> 6d <span style="color:#a5d6ff">01</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span> <span style="color:#a5d6ff">00</span>  <span style="color:#a5d6ff">01</span> 9e <span style="color:#a5d6ff">02</span> <span style="color:#a5d6ff">29</span> <span style="color:#a5d6ff">60</span> <span style="color:#a5d6ff">01</span> 7f <span style="color:#a5d6ff">01</span>  |.asm.......<span style="color:#ff7b72;font-weight:bold">)</span><span style="color:#a5d6ff">`</span>...|
 </span></span></code></pre></div><p>如果存在文件头不为.asm，需确认文件完整性（可能需要tar zxvf解压）</p>
 <p>由于部署higress-ai容器时路径已经挂载，直接修改配置文件即可：以ai-statistics插件为例：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#修改wasm加载路径：</span>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#修改wasm加载路径：</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>vim ai-statistics-1.0.0.yaml
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  url: file:///data/wasm-plugins-downloaded/ai-statistics.wasm
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># url: oci://higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/ai-statistics:2.0.0</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  url: file:///data/wasm-plugins-downloaded/ai-statistics.wasm
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># url: oci://higress-registry.cn-hangzhou.cr.aliyuncs.com/plugins/ai-statistics:2.0.0</span>
 </span></span></code></pre></div><p>确保所有插件的配置文件均完成修改：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -rn <span style="color:#e6db74">&#39;file://&#39;</span> ./
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -rn <span style="color:#a5d6ff">&#39;file://&#39;</span> ./
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>./ai-statistics-1.0.0.yaml:68:  url: file:///data/wasm-plugins-downloaded/ai-statistics.wasm  
 </span></span><span style="display:flex;"><span>./key-auth.internal.yaml:76:  url: file:///data/wasm-plugins-downloaded/key-auth.wasm
 </span></span><span style="display:flex;"><span>./model-mapper.internal.yaml:136:  url: file:///data/wasm-plugins-downloaded/model-mapper.wasm
 </span></span><span style="display:flex;"><span>./ai-proxy.internal.yaml:259:  url: file:///data/wasm-plugins-downloaded/ai-proxy.wasm
 </span></span></code></pre></div><p>重启higress-ai，观察/var/log/higress/gateway.log文件，即不会出现wasm fetching image errors问题</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec higress-ai cat /var/log/higress/gateway.log
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec higress-ai cat /var/log/higress/gateway.log
 </span></span></code></pre></div><h2 id="调用测试">调用测试</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/W4nde3/blog-images@main/img/20260115005127036.png" alt=""></p>
 <hr>

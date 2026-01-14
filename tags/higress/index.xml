@@ -1,33 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Higress on Wander Run</title><link>https://wanderrun.space/tags/higress/</link><description>Recent content in Higress on Wander Run</description><generator>Hugo</generator><language>zh-cn</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener"&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://wanderrun.space/tags/higress/index.xml" rel="self" type="application/rss+xml"/><item><title>Higress 离线部署实践</title><link>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Higress on Wander Run</title><link>https://www.wanderrun.space/tags/higress/</link><description>Recent content in Higress on Wander Run</description><generator>Hugo</generator><language>zh-cn</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener"&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://www.wanderrun.space/tags/higress/index.xml" rel="self" type="application/rss+xml"/><item><title>Higress 离线部署实践</title><link>https://www.wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</link><pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate><guid>https://www.wanderrun.space/posts/2026/01/higress-%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5/</guid><description>&lt;p&gt;前段时间公司项目需要在内网环境部署 Higress，过程中踩了一些坑，记录一下完整流程。&lt;/p&gt;
 &lt;h2 id="问题背景"&gt;问题背景&lt;/h2&gt;
-&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;
-&lt;h2 id="资源准备"&gt;资源准备&lt;/h2&gt;
-&lt;p&gt;在一台能上网的机器上操作：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 下载 Higress 镜像&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 打包&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker save -o higress.tar higress-registry.cn-hangzhou.cr.aliyuncs.com/higress/higress:latest
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把 &lt;code&gt;higress.tar&lt;/code&gt; 传到离线环境服务器。&lt;/p&gt;
-&lt;h2 id="离线安装"&gt;离线安装&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 加载镜像&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker load -i higress.tar
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 为了方便版本管理，查阅到当前版本为2.1.9&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IMAGE_ID&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;docker images | grep higress | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $3}&amp;#39;&lt;/span&gt; | head -1&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker tag $IMAGE_ID higress-allinone:v2.1.9
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 创建数据目录&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p /root/higress
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 启动容器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 8001为管理端、8080为HTTP网关、8443为HTTPS网关，按需映射&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name higress-ai &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart always &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55001:8001 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55002:8080 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 55003:8443 &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v /root/higress:/data &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; higress-allinone:v2.1.9
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检查一下容器状态：&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;由于GPU集群处于内网环境、无法访问网络，又因为Higress最新版本(截至目前2.1.9)疑似存在设计问题，即便是ALLINONE版本仍然会访问公网环境尝试下载OCI镜像，并阻塞网关的正常启动&lt;/p&gt;</description></item></channel></rss>
